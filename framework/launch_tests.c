@@ -38,22 +38,25 @@ int	case_result(t_clist *lst)
 
 int	run_test(t_clist *lst)
 {
-	int		res;
+	int64_t	case_count;
+	int64_t	pass_count;
 	t_clist	*start;
 
 	if (!lst) //未初期化ケース確認
 		return (0);
 	start = lst;
-	res = 0;
+	pass_count = 0;
 	while (1)
 	{
+		case_count++;
 		lst = lst->prev;
-		res |= case_result(lst);
+		pass_count += case_result(lst);
 		print_result(((t_data *)lst->data)->case_name, res);
 		if (lst == start)
 			break ;
 	}
-	return (res);
+	printf("%ld/%ld tests passed", case_count + pass_count, case_count);
+	return (-(case_count != -pass_count));
 }
 
 int	launch_tests(t_clist **lst)
