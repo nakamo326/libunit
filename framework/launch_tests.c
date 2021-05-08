@@ -3,17 +3,17 @@
 int	print_result(char *case_name, int res)
 {
 	if (!res)
-		printf("%15s : \x1b[32m[OK]\x1b[39m\n", case_name);
+		printf("%-13s : \x1b[32m[OK]\x1b[39m\n", case_name);
 	else if (res == -1)
-		printf("%15s : \x1b[31m[KO]\x1b[39m\n", case_name);
+		printf("%-13s : \x1b[31m[KO]\x1b[39m\n", case_name);
 	else if (res == SIGSEGV)
-		printf("%15s : \x1b[33m[SEGV]\x1b[39m\n", case_name);
+		printf("%-13s : \x1b[33m[SEGV]\x1b[39m\n", case_name);
 	else if (res == SIGABRT)
-		printf("%15s : \x1b[33m[ABORT]\x1b[39m\n", case_name);
+		printf("%-13s : \x1b[33m[ABORT]\x1b[39m\n", case_name);
 	else if (res == SIGBUS)
-		printf("%15s : \x1b[33m[BUSE]\x1b[39m\n", case_name);
+		printf("%-13s : \x1b[33m[BUSE]\x1b[39m\n", case_name);
 	else
-		printf("%15s : \x1b[33m[UNKNOWN ERROR]\x1b[39m\n", case_name);
+		printf("%-15s : \x1b[33m[UNKNOWN ERROR]\x1b[39m\n", case_name);
 	return (-!!res);
 }
 
@@ -47,6 +47,7 @@ int	run_test(t_clist *lst)
 		return (0);
 	start = lst;
 	ko = 0;
+	cases = 0;
 	while (1)
 	{
 		cases++;
@@ -56,7 +57,7 @@ int	run_test(t_clist *lst)
 		if (lst == start)
 			break ;
 	}
-	printf("%ld/%ld tests passed", cases + ko, cases);
+	printf("\n%ld/%ld tests passed", cases + ko, cases);
 	return (-!!ko);
 }
 

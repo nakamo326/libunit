@@ -31,6 +31,6 @@ void	err_exit(t_clist *lst, t_data *data);
 void	load_test(t_clist **lst, char *case_name, int (*f_case)());
 void	lst_clear(t_clist *lst);
 void	lst_free_next(t_clist **lst, t_clist *next, void *data);
-
+int		launch_tests(t_clist **lst);
 
 #endif
