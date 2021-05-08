@@ -23,7 +23,7 @@ int	a(void)
 
 int	b(void)
 {
-	return (-(ft_strlen("1") != strlen("1")));
+	return (-(ft_strlen("1") != strlen("1w")));
 }
 
 int	c(void)
