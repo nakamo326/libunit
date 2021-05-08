@@ -10,16 +10,12 @@ void	ft_clstadd_front(t_clist **lst, t_clist *new)
 {
 	if (g_start)
 	{
-		new->start = 0;
 		new->next = *lst;
 		new->prev = (*lst)->prev;
 		(*lst)->prev = new;
 	}
 	else
-	{
-		new->start = 1;
 		new->prev = new;
-	}
 	new->prev->next = new;
 	*lst = new;
 }
@@ -36,7 +32,7 @@ t_clist	*ft_clstnew(void *data)
 	return (new);
 }
 
-void	lst_free(t_clist **lst, t_clist *next, void *data)
+void	lst_free_next(t_clist **lst, t_clist *next, void *data)
 {
 	free(*lst);
 	free(data);
@@ -45,9 +41,15 @@ void	lst_free(t_clist **lst, t_clist *next, void *data)
 
 void	lst_clear(t_clist *lst)
 {
+	t_clist	*start;
+
 	if (!lst)
 		return ;
-	while (!lst->start)
-		lst_free(&lst, lst->next, lst->data);
-	lst_free(&lst, lst->next, lst->data);
+	start = lst;
+	while (1)
+	{
+		lst_free_next(&lst, lst->next, lst->data);
+		if (lst == start)
+			break ;
+	}
 }

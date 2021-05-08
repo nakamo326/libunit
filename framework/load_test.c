@@ -1,9 +1,23 @@
 #include "libunit.h"
 
+size_t	my_strlen(char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
 void	err_exit(t_clist *lst, t_data *data)
 {
+	char *s;
+
 	free(data);
 	lst_clear(lst);
+	s = "error\n";
+	write(STDERR_FILENO, s, my_strlen(s));
 	exit(1);
 }
 

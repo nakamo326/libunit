@@ -14,7 +14,6 @@ int g_start;
 typedef struct s_clist	t_clist;
 struct		s_clist
 {
-	int		start;
 	void	*data;
 	t_clist	*next;
 	t_clist	*prev;
@@ -31,7 +30,7 @@ int		ft_setptr(void *dest, void *p);
 void	err_exit(t_clist *lst, t_data *data);
 void	load_test(t_clist **lst, char *case_name, int (*f_case)());
 void	lst_clear(t_clist *lst);
-void	lst_free(t_clist **lst, t_clist *next, void *data);
+void	lst_free_next(t_clist **lst, t_clist *next, void *data);
 
 
 #endif
