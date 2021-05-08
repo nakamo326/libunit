@@ -44,10 +44,11 @@ int	run_test(t_clist *lst)
 	if (!lst) //未初期化ケース確認
 		return (0);
 	start = lst;
+	res = 0;
 	while (1)
 	{
 		lst = lst->prev;
-		res = case_result(lst);
+		res |= case_result(lst);
 		print_result(((t_data *)lst->data)->case_name, res);
 		if (lst == start)
 			break ;
