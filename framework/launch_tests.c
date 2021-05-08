@@ -1,11 +1,23 @@
 #include "libunit.h"
 
-void	print_result(int res, char *case_name)
+int	print_result(char *case_name, int res)
 {
-
+	if (!res)
+		printf("%15s : \x1b[32m[OK]\x1b[39m\n", case_name);
+	else if (res == -1)
+		printf("%15s : \x1b[31m[KO]\x1b[39m\n", case_name);
+	else if (res == SIGSEGV)
+		printf("%15s : \x1b[33m[SEGV]\x1b[39m\n", case_name);
+	else if (res == SIGABRT)
+		printf("%15s : \x1b[33m[ABORT]\x1b[39m\n", case_name);
+	else if (res == SIGBUS)
+		printf("%15s : \x1b[33m[BUSE]\x1b[39m\n", case_name);
+	else
+		printf("%15s : \x1b[33m[UNKNOWN ERROR]\x1b[39m\n", case_name);
+	return (-!!res);
 }
 
-int	new_process(t_clist *lst)
+int	case_result(t_clist *lst)
 {
 	pid_t	pid;
 	int		status;
@@ -21,6 +33,7 @@ int	new_process(t_clist *lst)
 	else if (WIFSIGNALED(status))
 		return (WTERMSIG(status));
 	err_exit(lst, NULL); //wacaran
+	return (0);
 }
 
 int	run_test(t_clist *lst)
@@ -34,7 +47,8 @@ int	run_test(t_clist *lst)
 	while (1)
 	{
 		lst = lst->prev;
-		res = new_process(lst);
+		res = case_result(lst);
+		print_result(((t_data *)lst->data)->case_name, res);
 		if (lst == start)
 			break ;
 	}
