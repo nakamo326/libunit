@@ -41,7 +41,7 @@ int fork_test(int (*func)())
 		return ((char)WEXITSTATUS(status));
 	if (WIFSIGNALED(status)) //異常終了 segv buse abort etc...
 		return (WTERMSIG(status));
-	return (0);
+	exit(0);
 }
 
 void res(int ret)
