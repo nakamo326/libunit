@@ -3,7 +3,7 @@ CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 AR			= ar
 ARFLAGS		= scr
-SRCDIR		= ./
+SRCDIR		= ./framework
 SRCS		= $(addprefix $(SRCDIR), $(SRCFILE))
 OBJS		= $(SRCS:.c=.o)
 SRCFILE		= test.c
