@@ -1,4 +1,4 @@
-#include "basic_tests.h"
+#include "strlen_tests.h"
 
 int	bigger_str_test(void)
 {

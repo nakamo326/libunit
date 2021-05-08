@@ -1,4 +1,4 @@
-#include "basic_tests.h"
+#include "strlen_tests.h"
 
 int	basic_test(void)
 {
