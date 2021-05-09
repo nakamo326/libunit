@@ -49,9 +49,9 @@ int	run_test(t_clist *lst)
 
 	if (!lst) //未初期化ケース確認
 		return (0);
-	start = lst;
 	ko = 0;
 	cases = 0;
+	start = lst;
 	while (1)
 	{
 		cases++;
