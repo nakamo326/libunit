@@ -16,6 +16,7 @@ int	include_allascii_test(void)
 		j--;
 		i++;
 	}
+	tmp[126] = 0;
 	if (ft_strlen(tmp) == strlen(tmp))
 		result = 0;
 	else
