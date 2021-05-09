@@ -4,10 +4,28 @@ CFLAGS			= -Wall -Wextra -Werror
 LIBFT_DIR		= ../real-tests/libft
 FRAMEWORK_DIR	= ../framework
 SRCDIR			= ./strlen/
-SRCS			= $(addprefix $(SRCDIR), $(SRCFILE)) $(ATOISRC) main.c
+SRCS			= $(shell find . -name '*.c')
+# SRCS			= $(addprefix $(SRCDIR), $(SRCFILE)) $(ATOISRC) main.c
+# SRCS			= $(STRLENSRC) $(ATOISRC) main.c
 OBJS			= $(SRCS:.c=.o)
-SRCFILE			= 00_launcher.c 01_basic_test.c 02_NULL_test.c \
-				03_bigger_str_test.c 04_include_nullchar_test.c
+# SRCFILE			= 00_launcher.c 01_basic_test.c 02_NULL_test.c \
+# 				03_bigger_str_test.c 04_include_nullchar_test.c
+STRLENSRC		= ./strlen/05_basic_test5.c \
+				./strlen/03_basic_test3.c \
+				./strlen/14_bigger_str_test.c \
+				./strlen/01_basic_test.c \
+				./strlen/08_include_allascii_test.c \
+				./strlen/00_launcher.c \
+				./strlen/12_empty_str_test.c \
+				./strlen/07_basic_test7.c \
+				./strlen/11_basic_test11.c \
+				./strlen/02_basic_test2.c \
+				./strlen/09_not_endwith_nullchar.c \
+				./strlen/06_basic_test6.c \
+				./strlen/10_include_space_test.c \
+				./strlen/13_include_nullchar_test.c \
+				./strlen/15_NULL_test.c \
+				./strlen/04_basic_test4.c
 ATOISRC			= ./atoi/00_launcher.c\
 				./atoi/01_basic_test.c\
 				./atoi/02_error_a.c\
