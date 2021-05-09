@@ -13,7 +13,7 @@ int	basic_test5(void);
 int	basic_test6(void);
 int	basic_test7(void);
 int	basic_test8(void);
-int include_allascii_test(void);
+int	include_allascii_test(void);
 int	not_endwith_nullchar(void);
 int	include_space_test(void);
 int	empty_str_test(void);
