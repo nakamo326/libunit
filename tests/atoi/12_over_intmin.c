@@ -2,7 +2,7 @@
 
 int	over_intmin(void)
 {
-	char *s;
+	char	*s;
 
 	s = "-2147483649";
 	return (-(ft_atoi(s) != atoi(s)));

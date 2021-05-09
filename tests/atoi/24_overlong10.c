@@ -2,7 +2,7 @@
 
 int	over_long10(void)
 {
-	char *s;
+	char	*s;
 
 	s = "922337203685477580a";
 	return (-(ft_atoi(s) != atoi(s)));

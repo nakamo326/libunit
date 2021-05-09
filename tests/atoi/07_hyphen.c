@@ -2,7 +2,7 @@
 
 int	hyphen(void)
 {
-	char *s;
+	char	*s;
 
 	s = "-";
 	return (-(ft_atoi(s) != atoi(s)));

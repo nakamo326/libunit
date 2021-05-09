@@ -2,7 +2,7 @@
 
 int	space3(void)
 {
-	char *s;
+	char	*s;
 
 	s = "3456  ";
 	return (-(ft_atoi(s) != atoi(s)));

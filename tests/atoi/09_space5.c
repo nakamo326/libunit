@@ -2,7 +2,7 @@
 
 int	space5(void)
 {
-	char *s;
+	char	*s;
 
 	s = "\t\v\f\r\n \f-06050";
 	return (-(ft_atoi(s) != atoi(s)));

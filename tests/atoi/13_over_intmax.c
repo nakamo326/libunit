@@ -2,7 +2,7 @@
 
 int	over_intmax(void)
 {
-	char *s;
+	char	*s;
 
 	s = "6442450944";
 	return (-(ft_atoi(s) != atoi(s)));
