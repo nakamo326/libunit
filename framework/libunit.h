@@ -12,7 +12,7 @@
 # include <limits.h>
 # define UNKNOWN SIGUSR1
 
-int g_start;
+int						g_start;
 typedef struct s_clist	t_clist;
 struct		s_clist
 {
