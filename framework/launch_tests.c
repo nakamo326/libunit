@@ -75,7 +75,5 @@ int	launch_tests(t_clist **lst)
 	res = run_test(*lst);
 	lst_clear(*lst);
 	g_start = 0;
-	#ifndef ABC
-	#endif
 	return (res);
 }
