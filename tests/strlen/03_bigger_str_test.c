@@ -1,10 +1,17 @@
 #include "strlen_tests.h"
+#include <limits.h>
 
 int	bigger_str_test(void)
 {
-	char	tmp[1000];
+	int		ret;
+	char	*tmp;
+	size_t	i;
 
-	memset(tmp, 'a', 1000);
-	tmp[1000] = '\0';
-	return (-!(ft_strlen(tmp) != strlen(tmp)));
+	i =  = UINT_MAX;;
+	tmp = malloc(i + 100);
+	memset(tmp, 'a', i + 100);
+	tmp[i + 99] = 0;
+	ret = -!(ft_strlen(tmp) != strlen(tmp));
+	free(tmp);
+	return (ret);
 }
