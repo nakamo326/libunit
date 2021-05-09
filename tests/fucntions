@@ -1,5 +1,12 @@
 strlen
 atoi
+itoa
+memchr
+memcmp
+strncmp
+strchr
+strrchr
+
 isalnum
 isalpha
 isascii
@@ -7,9 +14,3 @@ isdigit
 isprint
 tolower
 toupper
-itoa
-memchr
-memcmp
-strncmp
-strchr
-strrchr
