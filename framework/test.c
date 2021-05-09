@@ -23,7 +23,7 @@ int	a(void)
 
 int	b(void)
 {
-	return (-(ft_strlen("1") != strlen("1w")));
+	return (-(ft_strlen("1") == strlen("1")));
 }
 
 int	c(void)
@@ -53,6 +53,11 @@ int	g(void)
 	return (-(ft_strlen("") != strlen("")));
 }
 
+int	h(void)
+{
+	return (11);
+}
+
 int main()
 {
 	t_clist *lst;
@@ -65,5 +70,6 @@ int main()
 	load_test(&lst, "d", d);
 	load_test(&lst, "e", e);
 	load_test(&lst, "g", g);
+	load_test(&lst, "h", h);
 	return (launch_tests(&lst));
 }
