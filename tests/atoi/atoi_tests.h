@@ -1,5 +1,5 @@
-#ifndef ATOI_TEST_H
-# define ATOI_TEST_H
+#ifndef ATOI_TESTS_H
+# define ATOI_TESTS_H
 # include <string.h>
 # include "../../real-tests/libft/libft.h"
 
