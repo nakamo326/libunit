@@ -4,10 +4,39 @@ CFLAGS			= -Wall -Wextra -Werror
 LIBFT_DIR		= ../real-tests/libft
 FRAMEWORK_DIR	= ../framework
 SRCDIR			= ./strlen/
-SRCS			= $(addprefix $(SRCDIR), $(SRCFILE)) main.c
+SRCS			= $(addprefix $(SRCDIR), $(SRCFILE)) $(ATOISRC) main.c
 OBJS			= $(SRCS:.c=.o)
 SRCFILE			= 00_launcher.c 01_basic_test.c 02_NULL_test.c \
 				03_bigger_str_test.c 04_include_nullchar_test.c
+ATOISRC			= ./atoi/00_launcher.c
+				./atoi/01_basic_test.c
+				./atoi/02_error_a.c
+				./atoi/03_ascii_0.c
+				./atoi/04_space.c
+				./atoi/05_space2.c
+				./atoi/06_space3.c
+				./atoi/07_hyphen.c
+				./atoi/08_space4.c
+				./atoi/09_space5.c
+				./atoi/10_plus.c
+				./atoi/11_intmin.c
+				./atoi/12_over_intmin.c
+				./atoi/13_over_intmax.c
+				./atoi/14_over_intmax2.c
+				./atoi/15_overlong.c
+				./atoi/16_overlong2.c
+				./atoi/17_overlong3.c
+				./atoi/18_overlong4.c
+				./atoi/19_overlong5.c
+				./atoi/20_overlong6.c
+				./atoi/21_overlong7.c
+				./atoi/22_overlong8.c
+				./atoi/23_overlong9.c
+				./atoi/24_overlong10.c
+				./atoi/25_overlong11.c
+				./atoi/26_overlong12.c
+				./atoi/27_overlong13.c
+				./atoi/28_null_p.c
 
 all	:	$(NAME)
 
@@ -30,3 +59,4 @@ fclean: clean
 re:		fclean all
 
 .PHONY:	all clean fclean re
+
