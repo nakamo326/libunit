@@ -4,12 +4,9 @@ CFLAGS			= -Wall -Wextra -Werror
 LIBFT_DIR		= ../real-tests/libft
 FRAMEWORK_DIR	= ../framework
 SRCDIR			= ./strlen/
-SRCS			= $(shell find . -name '*.c')
-# SRCS			= $(addprefix $(SRCDIR), $(SRCFILE)) $(ATOISRC) main.c
-# SRCS			= $(STRLENSRC) $(ATOISRC) main.c
+# SRCS			= $(shell find . -name '*.c')
+SRCS			= $(STRLENSRC) $(ATOISRC) main.c
 OBJS			= $(SRCS:.c=.o)
-# SRCFILE			= 00_launcher.c 01_basic_test.c 02_NULL_test.c \
-# 				03_bigger_str_test.c 04_include_nullchar_test.c
 STRLENSRC		= ./strlen/05_basic_test5.c \
 				./strlen/03_basic_test3.c \
 				./strlen/14_bigger_str_test.c \
@@ -25,7 +22,10 @@ STRLENSRC		= ./strlen/05_basic_test5.c \
 				./strlen/10_include_space_test.c \
 				./strlen/13_include_nullchar_test.c \
 				./strlen/15_NULL_test.c \
-				./strlen/04_basic_test4.c
+				./strlen/04_basic_test4.c\
+				./strlen/16_buserror.c\
+				./strlen/17_ko_case.c\
+				./strlen/18_zero_divide.c
 ATOISRC			= ./atoi/00_launcher.c\
 				./atoi/01_basic_test.c\
 				./atoi/02_error_a.c\
@@ -69,6 +69,8 @@ run		: $(NAME)
 clean:
 	rm -f $(OBJS)
 
+bonus	: $(NAME)
+
 fclean: clean
 	$(MAKE) fclean -C $(LIBFT_DIR)
 	$(MAKE) fclean -C $(FRAMEWORK_DIR)
@@ -76,5 +78,5 @@ fclean: clean
 
 re:		fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re bonus
 

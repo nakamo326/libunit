@@ -46,8 +46,8 @@ int	run_test(t_clist *lst)
 	int64_t	ko;
 	t_clist	*start;
 
-	if (case_result(lst) == SIGSEGV)
-		return (1);
+	if (!lst)
+		return (-1);
 	ko = 0;
 	cases = 0;
 	start = lst;
@@ -70,9 +70,10 @@ int	launch_tests(t_clist **lst)
 
 	if (!lst)
 		err_exit(NULL, NULL);
+	if (!g_start)
+		return (-1);
 	res = run_test(*lst);
-	if (res <= 0)
-		lst_clear(*lst);
+	lst_clear(*lst);
 	g_start = 0;
 	return (res);
 }

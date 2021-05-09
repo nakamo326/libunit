@@ -20,5 +20,8 @@ int	empty_str_test(void);
 int	include_nullchar_test(void);
 int	bigger_str_test(void);
 int	null_test(void);
+int	bus_error(void);
+int	ko_case(void);
+int	zero_divide(void);
 
 #endif
