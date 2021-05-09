@@ -12,7 +12,7 @@ size_t	my_strlen(char *s)
 
 void	err_exit(t_clist *lst, t_data *data)
 {
-	char *s;
+	char	*s;
 
 	free(data);
 	lst_clear(lst);

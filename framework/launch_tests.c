@@ -66,7 +66,7 @@ int	run_test(t_clist *lst)
 
 int	launch_tests(t_clist **lst)
 {
-	int res;
+	int	res;
 
 	if (!lst)
 		err_exit(NULL, NULL);
