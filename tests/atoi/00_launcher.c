@@ -5,7 +5,7 @@ int	atoi_launcher(void)
 {
 	t_clist *lst;
 
-	puts("\x1b[1mATOI\x1b[0m\n");
+	puts("\x1b[1m*************************\n\nATOI\x1b[0m\n");
 	load_test(&lst, "basic_tset", atoi_basic_test);
 	load_test(&lst, "error_a", error_a);
 	load_test(&lst, "null_p", null_p);
