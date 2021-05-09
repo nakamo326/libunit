@@ -3,7 +3,7 @@
 
 int	strlen_launcher(void)
 {
-	t_clist *lst;
+	t_clist	*lst;
 
 	puts("\x1b[1mSTRLEN\x1b[0m\n");
 	load_test(&lst, "basic_test", basic_test);
@@ -18,7 +18,7 @@ int	strlen_launcher(void)
 	load_test(&lst, "include_space_test", include_space_test);
 	load_test(&lst, "empty_str_test", empty_str_test);
 	load_test(&lst, "include_nullchar_test", include_nullchar_test);
-	// load_test(&lst, "bigger_str_test", bigger_str_test);
+	load_test(&lst, "bigger_str_test", bigger_str_test);
 	load_test(&lst, "include_allascci_test", include_allascii_test);
 	load_test(&lst, "NULL_test", null_test);
 	load_test(&lst, "bus_error", bus_error);
