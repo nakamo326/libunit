@@ -21,5 +21,5 @@ int	include_allascii_test(void)
 	else
 		result = -1;
 	free(tmp);
-	return(result);
+	return (result);
 }
