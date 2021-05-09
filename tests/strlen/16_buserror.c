@@ -2,7 +2,7 @@
 
 int	bus_error(void)
 {
-	char *s;
+	char	*s;
 
 	s = "";
 	s[0] = 1;
