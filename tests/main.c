@@ -2,7 +2,7 @@
 #include "atoi/atoi_tests.h"
 #include <stdio.h>
 
-int	main()
+int	main(void)
 {
 	int	ret;
 
