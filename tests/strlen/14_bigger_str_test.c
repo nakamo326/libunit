@@ -7,7 +7,7 @@ int	bigger_str_test(void)
 	char	*tmp;
 	size_t	i;
 
-	i = UINT_MAX;;
+	i = UINT_MAX;
 	tmp = malloc(i + 100);
 	memset(tmp, 'a', i + 100);
 	tmp[i + 99] = 0;
