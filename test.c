@@ -3,5 +3,6 @@
 
 int main()
 {
+	atoi(NULL);
 	printf("%d\n", isalnum(260));
 }
