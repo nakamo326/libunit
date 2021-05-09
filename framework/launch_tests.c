@@ -42,8 +42,8 @@ int	case_result(t_clist *lst)
 int	run_test(t_clist *lst)
 {
 	int		res;
-	int64_t	cases;
-	int64_t	ko;
+	long	cases;
+	long	ko;
 	t_clist	*start;
 
 	if (!lst)
