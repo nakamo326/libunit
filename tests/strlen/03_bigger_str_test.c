@@ -2,14 +2,9 @@
 
 int	bigger_str_test(void)
 {
-	char	*tmp;
-	size_t	len;
+	char	tmp[1000];
 
-	len = 1000;
-	memset(tmp, 'a', len);
-	tmp[len] = '\0';
-	if (ft_strlen(tmp) == strlen(tmp))
-		return (0);
-	else
-		return (-1);
+	memset(tmp, 'a', 1000);
+	tmp[1000] = '\0';
+	return (-!(ft_strlen(tmp) != strlen(tmp)));
 }
