@@ -5,5 +5,5 @@ int	not_endwith_nullchar(void)
 	char	tmp[10];
 
 	memset(tmp, 'a', sizeof(tmp));
-	return(-(ft_strlen(tmp) != strlen(tmp)));
+	return (-(ft_strlen(tmp) != strlen(tmp)));
 }
