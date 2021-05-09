@@ -17,7 +17,7 @@ int	print_result(char *case_name, int res)
 	else if (res == SIGALRM)
 		printf("%-13s : \x1b[33m[TIME OUT]\x1b[39m\n", case_name);
 	else
-		printf("%-13s : \x1b[33m[UNKNOWN ERROR]\x1b[39m\n", case_name);
+		printf("%-13s : \x1b[33m[UNKNOWN]\x1b[39m\n", case_name);
 	return (-!!res);
 }
 
@@ -36,8 +36,7 @@ int	case_result(t_clist *lst)
 		return (-!!(char)WEXITSTATUS(status));
 	else if (WIFSIGNALED(status))
 		return (WTERMSIG(status));
-	err_exit(lst, NULL); //わからん
-	return (0);
+	return (UNKNOWN);
 }
 
 int	run_test(t_clist *lst)
