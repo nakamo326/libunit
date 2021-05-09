@@ -1,9 +1,10 @@
 #ifndef ATOI_TEST_H
 # define ATOI_TEST_H
 # include <string.h>
+# include "../../real-tests/libft/libft.h"
 
 int	atoi_launcher(void);
-int	basic_test(void);
+int	atoi_basic_test(void);
 int	error_a(void);
 int	null_p(void);
 int	over_long13(void);

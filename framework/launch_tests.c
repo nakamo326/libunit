@@ -60,7 +60,7 @@ int	run_test(t_clist *lst)
 		if (lst == start)
 			break ;
 	}
-	printf("\n%ld/%ld tests passed", cases + ko, cases);
+	printf("\n%ld/%ld tests passed\n\n", cases + ko, cases);
 	return (-!!ko);
 }
 
