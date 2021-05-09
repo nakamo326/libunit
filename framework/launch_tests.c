@@ -3,21 +3,21 @@
 int	print_result(char *case_name, int res)
 {
 	if (!res)
-		printf("%-13s : \x1b[32m[OK]\x1b[39m\n", case_name);
+		printf("\x1b[32m[OK]\x1b[39m      : %s\n", case_name);
 	else if (res == -1)
-		printf("%-13s : \x1b[31m[KO]\x1b[39m\n", case_name);
+		printf("\x1b[31m[KO]\x1b[39m      : %s\n", case_name);
 	else if (res == SIGSEGV)
-		printf("%-13s : \x1b[33m[SEGV]\x1b[39m\n", case_name);
+		printf("\x1b[33m[SEGV]\x1b[39m    : %s\n", case_name);
 	else if (res == SIGABRT)
-		printf("%-13s : \x1b[33m[ABORT]\x1b[39m\n", case_name);
+		printf("\x1b[33m[ABORT]\x1b[39m   : %s\n", case_name);
 	else if (res == SIGBUS)
-		printf("%-13s : \x1b[33m[BUSE]\x1b[39m\n", case_name);
+		printf("\x1b[33m[BUSE]\x1b[39m    : %s\n", case_name);
 	else if (res == SIGFPE)
-		printf("%-13s : \x1b[33m[FPE]\x1b[39m\n", case_name);
+		printf("\x1b[33m[FPE]\x1b[39m     : %s\n", case_name);
 	else if (res == SIGALRM)
-		printf("%-13s : \x1b[33m[TIME OUT]\x1b[39m\n", case_name);
+		printf("\x1b[33m[TIMEOUT]\x1b[39m : %s\n", case_name);
 	else
-		printf("%-13s : \x1b[33m[UNKNOWN]\x1b[39m\n", case_name);
+		printf("\x1b[33m[UNKNOWN]\x1b[39m : %s\n", case_name);
 	return (-!!res);
 }
 
