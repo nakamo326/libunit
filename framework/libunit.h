@@ -10,6 +10,7 @@
 # include <stdio.h>
 # include <signal.h>
 # include <limits.h>
+# define UNKNOWN SIGUSR1
 
 int g_start;
 typedef struct s_clist	t_clist;
