@@ -2,5 +2,5 @@
 
 int	main()
 {
-	launcher.c();
+	strlen_launcher();
 }
