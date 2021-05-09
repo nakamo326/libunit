@@ -47,8 +47,9 @@ int	e(void)
 
 int	g(void)
 {
-	char *s = "aiue";
-	s[0] = 1;
+	int i = 0;
+	int j = 0;
+	j /= i;
 	return (-(ft_strlen("") != strlen("")));
 }
 

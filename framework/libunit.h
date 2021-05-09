@@ -9,6 +9,7 @@
 # include <sys/wait.h>
 # include <stdio.h>
 # include <signal.h>
+# include <limits.h>
 
 int g_start;
 typedef struct s_clist	t_clist;

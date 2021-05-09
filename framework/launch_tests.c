@@ -12,8 +12,12 @@ int	print_result(char *case_name, int res)
 		printf("%-13s : \x1b[33m[ABORT]\x1b[39m\n", case_name);
 	else if (res == SIGBUS)
 		printf("%-13s : \x1b[33m[BUSE]\x1b[39m\n", case_name);
+	else if (res == SIGFPE)
+		printf("%-13s : \x1b[33m[FPE]\x1b[39m\n", case_name);
+	else if (res == SIGALRM)
+		printf("%-13s : \x1b[33m[TIME OUT]\x1b[39m\n", case_name);
 	else
-		printf("%-15s : \x1b[33m[UNKNOWN ERROR]\x1b[39m\n", case_name);
+		printf("%-13s : \x1b[33m[UNKNOWN ERROR]\x1b[39m\n", case_name);
 	return (-!!res);
 }
 
@@ -32,7 +36,7 @@ int	case_result(t_clist *lst)
 		return ((char)WEXITSTATUS(status));
 	else if (WIFSIGNALED(status))
 		return (WTERMSIG(status));
-	err_exit(lst, NULL); //wacaran
+	err_exit(lst, NULL); //わからん
 	return (0);
 }
 
