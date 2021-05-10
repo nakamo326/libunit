@@ -82,7 +82,7 @@ int	run_test(t_clist *lst)
 	int	ret;
 
 	fd = open("../result.txt",
-		O_WRONLY | O_CREAT | O_APPEND, S_IRWXU | S_IRWXG | S_IRWXO);
+			O_WRONLY | O_CREAT | O_APPEND, S_IRWXU | S_IRWXG | S_IRWXO);
 	ret = run_tester(lst, fd);
 	write(fd, "\n", 1);
 	close(fd);
