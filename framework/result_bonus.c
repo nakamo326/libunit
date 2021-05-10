@@ -35,7 +35,7 @@ int	case_result(t_clist *lst)
 	pid_t	pid;
 	int		status;
 
-	fflush(stdout);
+	fflush(stdout);;
 	pid = fork();
 	if (pid < 0)
 		err_exit(lst, NULL);
