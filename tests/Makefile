@@ -66,7 +66,9 @@ $(NAME) : $(OBJS)
 	$(RM) ../result.txt
 
 run		: $(NAME)
+	$(RM) ../result.txt
 	$(CC) $(OBJS) libft.a libunit.a $(CFLAGS) -o $(NAME) && ./libunit
+
 clean:
 	rm -f $(OBJS)
 
