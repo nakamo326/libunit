@@ -5,7 +5,7 @@
 int	main(void)
 {
 	int	ret;
-
+ setvbuf( stdout, NULL, _IONBF, 0 );
 	puts("\n\x1b[36m\x1b[1m*********************************");
 	puts("*****    42 - Unit Tests    *****");
 	puts("*********************************\x1b[0m\n\x1b[39m");
