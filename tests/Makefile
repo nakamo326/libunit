@@ -17,10 +17,10 @@ STRLENSRC		= ./strlen/05_basic_test5.c \
 				./strlen/07_basic_test7.c \
 				./strlen/11_basic_test11.c \
 				./strlen/02_basic_test2.c \
-				./strlen/09_not_endwith_nullchar.c \
+				./strlen/09_double_free.c \
 				./strlen/06_basic_test6.c \
 				./strlen/10_include_space_test.c \
-				./strlen/13_include_nullchar_test.c \
+				./strlen/09_include_nullchar_test.c \
 				./strlen/15_NULL_test.c \
 				./strlen/04_basic_test4.c\
 				./strlen/16_buserror.c\
