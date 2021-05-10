@@ -22,7 +22,7 @@ void	print_file(char *case_name, int res)
 
 void	file_out(char *case_name, int res, int fd)
 {
-	int stdout_tmp;
+	int	stdout_tmp;
 
 	stdout_tmp = dup(1);
 	dup2(fd, 1);
