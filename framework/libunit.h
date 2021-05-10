@@ -10,6 +10,8 @@
 # include <stdio.h>
 # include <signal.h>
 # include <limits.h>
+# include <fcntl.h>
+# include <sys/stat.h>
 # define UNKNOWN SIGUSR1
 
 int						g_start;
@@ -34,5 +36,8 @@ void	load_test(t_clist **lst, char *case_name, int (*f_case)());
 void	lst_clear(t_clist *lst);
 void	lst_free_next(t_clist **lst, t_clist *next, void *data);
 int		launch_tests(t_clist **lst);
+int		print_result(char *case_name, int res);
+int		case_result(t_clist *lst);
+int		run_test(t_clist *lst);
 
 #endif

@@ -6,7 +6,7 @@ ARFLAGS		= scr
 SRCDIR		= ./
 SRCS		= $(addprefix $(SRCDIR), $(SRCFILE))
 OBJS		= $(SRCS:.c=.o)
-SRCFILE		= load_test.c launch_tests.c lst_utils.c
+SRCFILE		= load_test.c launch_tests.c lst_utils.c result_bonus.c
 
 all			: $(NAME)
 
