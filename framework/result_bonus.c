@@ -18,6 +18,7 @@ void	print_file(char *case_name, int res)
 		printf("[TIMEOUT] : %s\n", case_name);
 	else
 		printf("[UNKNOWN] : %s\n", case_name);
+	fflush(stdout);
 }
 
 void	file_out(char *case_name, int res, int fd)
@@ -86,6 +87,5 @@ int	run_test(t_clist *lst)
 	ret = run_tester(lst, fd);
 	write(fd, "\n", 1);
 	close(fd);
-	fflush(stdout);
 	return (ret);
 }
