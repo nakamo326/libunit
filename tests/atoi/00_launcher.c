@@ -34,5 +34,6 @@ int	atoi_launcher(void)
 	load_test(&lst, "space", space);
 	load_test(&lst, "ascii_0", ascii_0);
 	load_test(&lst, "time_out", time_out);
+	load_test(NULL, "time_out", time_out);
 	return (launch_tests(&lst));
 }
