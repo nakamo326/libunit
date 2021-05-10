@@ -17,7 +17,7 @@ STRLENSRC		= ./strlen/05_basic_test5.c \
 				./strlen/07_basic_test7.c \
 				./strlen/11_basic_test11.c \
 				./strlen/02_basic_test2.c \
-				./strlen/09_double_free.c \
+				./strlen/13_double_free.c \
 				./strlen/06_basic_test6.c \
 				./strlen/10_include_space_test.c \
 				./strlen/09_include_nullchar_test.c \
