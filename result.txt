@@ -2,6 +2,8 @@
 [SEGV]    : bus_error
 [KO]      : ko_case
 [FPE]     : zero_divide
+[ABORT]   : not_endwith_nullchar
 
 [SEGV]    : null_p
+[TIMEOUT] : time_out
 

@@ -39,7 +39,10 @@ int	case_result(t_clist *lst)
 	if (pid < 0)
 		err_exit(lst, NULL);
 	else if (pid == 0)
+	{
+		alarm(7);
 		exit(((t_data *)lst->data)->f_case());
+	}
 	wait(&status);
 	if (WIFEXITED(status))
 		return (-!!WEXITSTATUS(status));

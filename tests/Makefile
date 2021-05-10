@@ -54,7 +54,8 @@ ATOISRC			= ./atoi/00_launcher.c\
 				./atoi/25_overlong11.c\
 				./atoi/26_overlong12.c\
 				./atoi/27_overlong13.c\
-				./atoi/28_null_p.c
+				./atoi/28_null_p.c\
+				./atoi/29_time_out.c
 
 all	:	$(NAME)
 

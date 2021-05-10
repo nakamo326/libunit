@@ -31,5 +31,6 @@ int	space3(void);
 int	space2(void);
 int	space(void);
 int	ascii_0(void);
+int	time_out(void);
 
 #endif
