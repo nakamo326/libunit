@@ -2,6 +2,7 @@
 # define STRLEN_TESTS_H
 
 # include <string.h>
+# include <signal.h>
 # include "../../real-tests/libft/libft.h"
 
 int	strlen_launcher(void);
