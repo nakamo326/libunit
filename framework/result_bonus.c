@@ -41,7 +41,7 @@ int	case_result(t_clist *lst)
 		err_exit(lst, NULL);
 	else if (pid == 0)
 	{
-		alarm(7);
+		alarm(5);
 		exit(((t_data *)lst->data)->f_case());
 	}
 	wait(&status);
