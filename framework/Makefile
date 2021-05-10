@@ -24,7 +24,8 @@ fclean		: clean
 
 re			: fclean all
 
-bonus		: $(B_SRCS) $(B_OBJS)
+bonus		: $(B_OBJS)
+	$(RM) $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(B_OBJS)
 
 .PHONY		: all clean fclean re bonus
