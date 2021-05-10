@@ -12,7 +12,7 @@ int	case_result(t_clist *lst)
 		exit(((t_data *)lst->data)->f_case());
 	wait(&status);
 	if (WIFEXITED(status))
-		return (-!!(char)WEXITSTATUS(status));
+		return (-!!WEXITSTATUS(status));
 	else if (WIFSIGNALED(status))
 		return (WTERMSIG(status));
 	return (UNKNOWN);
