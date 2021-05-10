@@ -63,6 +63,7 @@ $(NAME) : $(OBJS)
 	$(MAKE) -C $(FRAMEWORK_DIR)
 	cp $(LIBFT_DIR)/libft.a .
 	cp $(FRAMEWORK_DIR)/libunit.a .
+	$(RM) ../result.txt
 
 run		: $(NAME)
 	$(CC) $(OBJS) libft.a libunit.a $(CFLAGS) -o $(NAME) && ./libunit
