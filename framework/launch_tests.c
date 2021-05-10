@@ -3,21 +3,21 @@
 int	print_result(char *case_name, int res)
 {
 	if (!res)
-		printf("\x1b[32m[OK]\x1b[39m      : %s\n", case_name);
+		printf(GREEN "[OK]"RESET"      : %s\n", case_name);
 	else if (res == -1)
-		printf("\x1b[31m[KO]\x1b[39m      : %s\n", case_name);
+		printf(RED   "[KO]"RESET"      : %s\n", case_name);
 	else if (res == SIGSEGV)
-		printf("\x1b[33m[SEGV]\x1b[39m    : %s\n", case_name);
+		printf(YELLOW"[SEGV]"RESET"    : %s\n", case_name);
 	else if (res == SIGABRT)
-		printf("\x1b[33m[ABORT]\x1b[39m   : %s\n", case_name);
+		printf(YELLOW"[ABORT]"RESET"   : %s\n", case_name);
 	else if (res == SIGBUS)
-		printf("\x1b[33m[BUSE]\x1b[39m    : %s\n", case_name);
+		printf(YELLOW"[BUSE]"RESET"    : %s\n", case_name);
 	else if (res == SIGFPE)
-		printf("\x1b[33m[FPE]\x1b[39m     : %s\n", case_name);
+		printf(YELLOW"[FPE]"RESET"     : %s\n", case_name);
 	else if (res == SIGALRM)
-		printf("\x1b[33m[TIMEOUT]\x1b[39m : %s\n", case_name);
+		printf(YELLOW"[TIMEOUT]"RESET" : %s\n", case_name);
 	else
-		printf("\x1b[33m[UNKNOWN]\x1b[39m : %s\n", case_name);
+		printf(YELLOW"[UNKNOWN]"RESET" : %s\n", case_name);
 	return (-!!res);
 }
 
