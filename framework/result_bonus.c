@@ -86,5 +86,6 @@ int	run_test(t_clist *lst)
 	ret = run_tester(lst, fd);
 	write(fd, "\n", 1);
 	close(fd);
+	fflush(stdout);
 	return (ret);
 }
