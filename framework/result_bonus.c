@@ -89,7 +89,7 @@ int	run_test(t_clist *lst, char *title)
 	write(fd, "\n", 1);
 	ret = run_tester(lst, fd);
 	printf("\x1b[36m\x1b[1m");
-	printf("*********************************\n\n\x1b[0m\n\x1b[39m");
+	printf("*********************************\n\n\x1b[0m\x1b[39m");
 	write(fd, "\n", 1);
 	close(fd);
 	return (ret);
