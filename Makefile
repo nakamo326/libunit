@@ -21,6 +21,10 @@ test:
 rtest:
 	$(MAKE) test -C $(REALTESTS_DIR)
 
+add:
+	$(MAKE) add -C $(TESTS_DIR)
+	$(MAKE) add -C $(REALTESTS_DIR)
+
 bonus:
 	$(MAKE) bonus -C $(TESTS_DIR)
 
