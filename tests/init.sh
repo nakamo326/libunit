@@ -62,5 +62,23 @@ re:		fclean all
 
 .PHONY:	all clean fclean re bonus'
 
+MAIN_C='#include "cases.h"
+#include <stdio.h>
+
+int	main(void)
+{
+	int	ret;
+
+	puts("\n\x1b[36m\x1b[1m*********************************");
+	puts("*****    42 - Unit Tests    *****");
+	puts("*********************************\x1b[0m\n\x1b[39m");
+	ret = 0;
+'
+
+MAIN_C+="$(find . -name '*.c' | sed '/\/00.*\.c/!d' | xargs cat 2>/dev/null | sed -e '/^\w/!d' -e "s/(\w*)$/();/g" -e "s/^\w*\t/\tret += /g")
+	return (ret);
+}
+"
+echo "${MAIN_C}" > main.c
 echo "${HEADER}" > cases.h
 echo "${makefile}" > Makefile
