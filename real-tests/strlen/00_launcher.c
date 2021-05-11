@@ -1,5 +1,4 @@
 #include "../cases.h"
-#include "../cases.h"
 
 int	strlen_launcher(void)
 {
