@@ -7,7 +7,7 @@ INCLUDE='# include <string.h>
 # include "../framework/libunit.h"
 # include <limits.h>
 
-''
+'
 
 HEADER="#ifndef ${NAME}"
 HEADER+="# define ${NAME}${INCLUDE}"
