@@ -3,8 +3,7 @@ CC				= gcc
 CFLAGS			= -Wall -Wextra -Werror
 LIBFT_DIR		= ../real-tests/libft
 FRAMEWORK_DIR	= ../framework
-# SRCDIR			= ./strlen/
-# SRCS			= $(shell find . -name '*.c')
+LIBUNIT_DIR		= ../
 SRCS			= $(STRLENSRC) $(ATOISRC) main.c
 OBJS			= $(SRCS:.c=.o)
 STRLENSRC		= ./strlen/00_launcher.c\
@@ -62,13 +61,13 @@ all	:	$(NAME)
 $(NAME) : $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)
 	$(MAKE) -C $(FRAMEWORK_DIR)
-	cp $(LIBFT_DIR)/libft.a .
-	cp $(FRAMEWORK_DIR)/libunit.a .
+	cp $(LIBFT_DIR)/libft.a $(LIBUNIT_DIR)
+	cp $(FRAMEWORK_DIR)/libunit.a $(LIBUNIT_DIR)
 	$(RM) ../result.txt
 
 test		: $(NAME)
-	# $(RM) ../result.txt
-	$(CC) $(OBJS) libft.a libunit.a $(CFLAGS) -o $(NAME) && ./libunit
+	$(RM) ../result.txt
+	$(CC) $(OBJS) $(LIBUNIT_DIR)/libft.a $(LIBUNIT_DIR)/libunit.a $(CFLAGS) -o $(NAME) && ./libunit
 
 clean:
 	rm -f $(OBJS)
@@ -76,14 +75,14 @@ clean:
 bonus : $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)
 	$(MAKE) bonus -C $(FRAMEWORK_DIR)
-	cp $(LIBFT_DIR)/libft.a .
-	cp $(FRAMEWORK_DIR)/libunit.a .
+	cp $(LIBFT_DIR)/libft.a $(LIBUNIT_DIR)
+	cp $(FRAMEWORK_DIR)/libunit.a $(LIBUNIT_DIR)
 	$(RM) ../result.txt
 
 fclean: clean
 	$(MAKE) fclean -C $(LIBFT_DIR)
 	$(MAKE) fclean -C $(FRAMEWORK_DIR)
-	rm -f $(NAME) libft.a libunit.a
+	rm -f $(NAME) $(LIBUNIT_DIR)/libft.a $(LIBUNIT_DIR)/libunit.a
 
 re:		fclean all
 

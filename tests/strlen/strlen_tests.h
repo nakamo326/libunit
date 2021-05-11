@@ -19,5 +19,10 @@ int	include_space_test(void);
 int	empty_str_test(void);
 int	include_nullchar_test(void);
 int	bigger_str_test(void);
+int	double_free(void);
+int	null_test(void);
+int bus_error(void);
+int	ko_case(void);
+int	zero_divide(void);
 
 #endif
