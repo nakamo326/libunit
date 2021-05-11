@@ -2,7 +2,7 @@
 
 int	tolower_not_alpha(void)
 {
-	int c;
+	int	c;
 
 	c = '[';
 	while (c < 'a')

@@ -2,7 +2,7 @@
 
 int	tolower_basic_test2(void)
 {
-	int c;
+	int	c;
 
 	c = 'a';
 	while (c <= 'z')
