@@ -3,6 +3,7 @@ REALTESTS_DIR	= ./real-tests
 
 all:
 	$(MAKE) -C $(TESTS_DIR)
+	$(MAKE) -C $(REALTESTS_DIR)
 
 clean:
 	$(MAKE) clean -C $(TESTS_DIR)
@@ -14,6 +15,7 @@ fclean:
 
 re:
 	$(MAKE) re -C $(TESTS_DIR)
+	$(MAKE) re -C $(REALTESTS_DIR)
 
 test:
 	$(MAKE) test -C $(TESTS_DIR)
@@ -27,5 +29,6 @@ add:
 
 bonus:
 	$(MAKE) bonus -C $(TESTS_DIR)
+	$(MAKE) bonus -C $(REALTESTS_DIR)
 
 .PHONY:	all clean fclean re bonus
