@@ -1,5 +1,6 @@
 #include "strlen/strlen_tests.h"
 #include "atoi/atoi_tests.h"
+#include "tolower/tolower_tests.h"
 #include <stdio.h>
 
 int	main(void)
@@ -12,5 +13,6 @@ int	main(void)
 	ret = 0;
 	ret += strlen_launcher();
 	ret += atoi_launcher();
+	ret += tolower_launcher();
 	return (ret);
 }
