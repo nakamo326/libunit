@@ -2,11 +2,12 @@
 
 LF=$'\n'
 NAME="CASES_H${LF}"
-INCLUDE="# include <string.h>
-# include \"../real-tests/libft/libft.h\"
-# include \"../framework/libunit.h\"
+INCLUDE='# include <string.h>
+# include "../real-tests/libft/libft.h"
+# include "../framework/libunit.h"
+# include <limits.h>
 
-"
+'
 
 HEADER="#ifndef ${NAME}"
 HEADER+="# define ${NAME}${INCLUDE}"

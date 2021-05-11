@@ -3,6 +3,7 @@
 # include <string.h>
 # include "../real-tests/libft/libft.h"
 # include "../framework/libunit.h"
+# include <limits.h>
 
 int	atoi_launcher(void);
 int	atoi_basic_test(void);
