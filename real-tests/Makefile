@@ -4,7 +4,7 @@ CFLAGS			= -Wall -Wextra -Werror
 LIBFT_DIR		= ../real-tests/libft
 FRAMEWORK_DIR	= ../framework
 LIBUNIT_DIR		= ../
-SRCS			= $(STRLENSRC) $(ATOISRC) $(TOLOWERSRC) main.c
+SRCS			= $(STRLENSRC) $(ATOISRC) $(TOLOWERSRC) $(TOUPPERSRC) main.c
 OBJS			= $(SRCS:.c=.o)
 STRLENSRC		= ./strlen/00_launcher.c\
 				./strlen/01_basic_test.c\
@@ -56,6 +56,12 @@ TOLOWERSRC		= ./tolower/00_launcher.c\
 				./tolower/03_not_alpha.c\
 				./tolower/04_nullchar_test.c\
 				./tolower/05_notascii_test.c
+TOUPPERSRC		= ./toupper/00_launcher.c\
+				./toupper/01_basic_test.c\
+				./toupper/02_basic_test2.c\
+				./toupper/03_not_alpha.c\
+				./toupper/04_nullchar_test.c\
+				./toupper/05_notascii_test.c
 
 all	:	$(NAME)
 
