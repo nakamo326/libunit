@@ -2,7 +2,6 @@
 
 int	print_result(char *case_name, int res)
 {
-	
 	if (!res)
 		printf(GREEN "[OK]"RESET"      : %s\n", case_name);
 	else if (res == -1)
