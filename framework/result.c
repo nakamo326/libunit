@@ -18,13 +18,14 @@ int	case_result(t_clist *lst)
 	return (UNKNOWN);
 }
 
-int	run_test(t_clist *lst)
+int	run_test(t_clist *lst, char *title)
 {
 	int		res;
 	long	cases;
 	long	ko;
 	t_clist	*start;
 
+	(void)title;
 	ko = 0;
 	cases = 0;
 	start = lst;

@@ -24,5 +24,5 @@ int	strlen_launcher(void)
 	load_test(&lst, "ko_case", ko_case);
 	load_test(&lst, "zero_divide", zero_divide);
 	load_test(&lst, "double_free", double_free);
-	return (launch_tests(&lst));
+	return (launch_tests(&lst, "STRLEN"));
 }

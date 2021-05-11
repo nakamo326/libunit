@@ -23,6 +23,6 @@ int	strlen_launcher(void)
 	load_test(&lst, "bus_error", bus_error);
 	load_test(&lst, "ko_case", ko_case);
 	load_test(&lst, "zero_divide", zero_divide);
-	load_test(&lst, "not_endwith_nullchar", double_free);
-	return (launch_tests(&lst));
+	load_test(&lst, "double_free", double_free);
+	return (launch_tests(&lst, "STRLEN"));
 }

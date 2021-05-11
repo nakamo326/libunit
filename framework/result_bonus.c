@@ -77,7 +77,7 @@ int	run_tester(t_clist *lst, int fd)
 	return (-!!ko);
 }
 
-int	run_test(t_clist *lst)
+int	run_test(t_clist *lst, char *title)
 {
 	int	fd;
 	int	ret;
@@ -85,6 +85,7 @@ int	run_test(t_clist *lst)
 	fd = open("../result.txt",
 			O_WRONLY | O_CREAT | O_APPEND, S_IRWXU | S_IRWXG | S_IRWXO);
 	ret = run_tester(lst, fd);
+	write(fd, title, my_strlen(title));
 	write(fd, "\n", 1);
 	close(fd);
 	return (ret);

@@ -21,7 +21,7 @@ int	print_result(char *case_name, int res)
 	return (-!!res);
 }
 
-int	launch_tests(t_clist **lst)
+int	launch_tests(t_clist **lst, char *title)
 {
 	int	res;
 
@@ -29,7 +29,7 @@ int	launch_tests(t_clist **lst)
 		err_exit(NULL, NULL);
 	if (!g_start || !*lst)
 		return (-!!puts("\x1b[31m[KO]      : no test detected\x1b[39m"));
-	res = run_test(*lst);
+	res = run_test(*lst, title);
 	lst_clear(*lst);
 	g_start = 0;
 	return (res);
