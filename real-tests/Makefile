@@ -67,7 +67,7 @@ $(NAME) : $(OBJS)
 	$(RM) ../result.txt
 
 test		: $(NAME)
-	# $(RM) ../result.txt
+	$(RM) ../result.txt
 	$(CC) $(OBJS) libft.a libunit.a $(CFLAGS) -o $(NAME) && ./libunit
 
 clean:
