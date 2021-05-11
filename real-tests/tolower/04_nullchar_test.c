@@ -1,4 +1,4 @@
-#include "tolower_tests.h"
+#include "../cases.h"
 
 int tolower_null_char(void)
 {

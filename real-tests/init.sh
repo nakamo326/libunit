@@ -6,6 +6,8 @@ INCLUDE='# include <string.h>
 # include "../real-tests/libft/libft.h"
 # include "../framework/libunit.h"
 # include <limits.h>
+# include <ctype.h>
+
 
 '
 

@@ -4,6 +4,8 @@
 # include "../real-tests/libft/libft.h"
 # include "../framework/libunit.h"
 # include <limits.h>
+# include <ctype.h>
+
 
 int	atoi_launcher(void);
 int	atoi_basic_test(void);

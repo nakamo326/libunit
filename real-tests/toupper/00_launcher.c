@@ -1,5 +1,4 @@
-#include "../../framework/libunit.h"
-#include "toupper_tests.h"
+#include "../cases.h"
 
 int	toupper_launcher(void)
 {

@@ -1,4 +1,4 @@
-#include "toupper_tests.h"
+#include "../cases.h"
 
 int toupper_null_char(void)
 {

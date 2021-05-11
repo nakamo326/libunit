@@ -1,5 +1,5 @@
-#include "../../framework/libunit.h"
-#include "tolower_tests.h"
+#include "../cases.h"
+#include "../cases.h"
 
 int	tolower_launcher(void)
 {

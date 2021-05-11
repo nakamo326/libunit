@@ -1,4 +1,4 @@
-#include "atoi_tests.h"
+#include "../cases.h"
 
 int	atoi_basic_test(void)
 {

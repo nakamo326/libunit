@@ -1,5 +1,5 @@
-#include "../../framework/libunit.h"
-#include "strlen_tests.h"
+#include "../cases.h"
+#include "../cases.h"
 
 int	strlen_launcher(void)
 {

@@ -1,4 +1,4 @@
-#include "toupper_tests.h"
+#include "../cases.h"
 
 int toupper_not_ascii(void)
 {
