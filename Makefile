@@ -18,7 +18,7 @@ re:
 test:
 	$(MAKE) test -C $(TESTS_DIR)
 
-r_test:
+rtest:
 	$(MAKE) test -C $(REALTESTS_DIR)
 
 bonus:
