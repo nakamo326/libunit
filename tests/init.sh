@@ -4,6 +4,7 @@ LF=$'\n'
 NAME="TEST_H${LF}"
 INCLUDE="# include <string.h>
 # include \"../real-tests/libft/libft.h\"
+#include \"../framework/libunit.h\"
 
 "
 
