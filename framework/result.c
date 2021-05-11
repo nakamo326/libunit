@@ -40,6 +40,6 @@ int	run_test(t_clist *lst, char *title)
 	}
 	printf("\n%ld/%ld tests passed\n\n", cases + ko, cases);
 	printf("\x1b[36m\x1b[1m");
-	printf("*********************************\n\n\x1b[0m\n\x1b[39m");
+	printf("*********************************\n\n\x1b[0m\x1b[39m");
 	return (-!!ko);
 }
