@@ -1,5 +1,4 @@
-#include "../../framework/libunit.h"
-#include "atoi_tests.h"
+#include "../cases.h"
 
 int	atoi_launcher(void)
 {

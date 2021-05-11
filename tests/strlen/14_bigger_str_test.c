@@ -1,4 +1,4 @@
-#include "strlen_tests.h"
+#include "../cases.h"
 #include <limits.h>
 
 int	bigger_str_test(void)

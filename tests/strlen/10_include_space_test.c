@@ -1,4 +1,4 @@
-#include "strlen_tests.h"
+#include "../cases.h"
 
 int	include_space_test(void)
 {

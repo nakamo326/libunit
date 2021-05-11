@@ -1,4 +1,4 @@
-#include "strlen_tests.h"
+#include "../cases.h"
 
 int	basic_test4(void)
 {
