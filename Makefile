@@ -12,7 +12,7 @@ fclean:
 re:
 	$(MAKE) re -C $(TESTS_DIR)
 
-run
+run:
 	$(MAKE) run -C $(TESTS_DIR)
 
 bonus:
