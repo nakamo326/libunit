@@ -1,6 +1,6 @@
 #include "../cases.h"
 
-int tolower_not_alpha(void)
+int	tolower_not_alpha(void)
 {
 	int c;
 

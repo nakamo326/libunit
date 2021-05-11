@@ -1,6 +1,6 @@
 #include "../cases.h"
 
-int tolower_basic_test2(void)
+int	tolower_basic_test2(void)
 {
 	int c;
 
