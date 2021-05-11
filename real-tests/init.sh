@@ -13,7 +13,7 @@ INCLUDE='# include <string.h>
 HEADER="#ifndef ${NAME}"
 HEADER+="# define ${NAME}${INCLUDE}"
 HEADER+=$(find . -type d -name libft -prune -o -name '*.c'  | xargs cat 2>/dev/null | sed -e '/^\w/!d' | sed -e "s/)$/);/g")
-HEADER+="${LF}${LF}# endif"
+HEADER+="${LF}${LF}#endif"
 
 
 makefile="NAME			= libunit
