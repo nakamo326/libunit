@@ -1,21 +1,21 @@
 TESTS_DIR	= ./tests
 
-all: 
+all:
 	$(MAKE) -C $(TESTS_DIR)
 
-clean:	
+clean:
 	$(MAKE) clean -C $(TESTS_DIR)
 
-fclean:	
+fclean:
 	$(MAKE) fclean -C $(TESTS_DIR)
 
-re:	
+re:
 	$(MAKE) re -C $(TESTS_DIR)
 
-run:
+run
 	$(MAKE) run -C $(TESTS_DIR)
 
-bonus:	
+bonus:
 	$(MAKE) bonus -C $(TESTS_DIR)
 
 .PHONY:	all clean fclean re bonus
