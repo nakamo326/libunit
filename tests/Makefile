@@ -66,7 +66,7 @@ $(NAME) : $(OBJS)
 	cp $(FRAMEWORK_DIR)/libunit.a .
 	$(RM) ../result.txt
 
-run		: $(NAME)
+test		: $(NAME)
 	# $(RM) ../result.txt
 	$(CC) $(OBJS) libft.a libunit.a $(CFLAGS) -o $(NAME) && ./libunit
 
