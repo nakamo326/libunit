@@ -79,6 +79,7 @@ MAIN_C+="$(find . -name '*.c' | sed '/\/00.*\.c/!d' | xargs cat 2>/dev/null | se
 	return (ret);
 }
 "
+
 echo "${MAIN_C}" > main.c
 echo "${HEADER}" > cases.h
 echo "${makefile}" > Makefile
