@@ -18,7 +18,7 @@ void	err_exit(t_clist *lst, t_data *data)
 	lst_clear(lst);
 	s = "error\n";
 	write(STDERR_FILENO, s, my_strlen(s));
-	exit(-1);
+	exit(1);
 }
 
 void	load_test(t_clist **lst, char *case_name, int (*f_case)())
