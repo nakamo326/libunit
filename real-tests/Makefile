@@ -20,12 +20,7 @@ STRLENSRC		= ./strlen/00_launcher.c\
 				./strlen/10_include_space_test.c\
 				./strlen/11_basic_test11.c\
 				./strlen/12_empty_str_test.c\
-				./strlen/13_double_free.c\
-				./strlen/14_bigger_str_test.c\
-				./strlen/15_NULL_test.c\
-				./strlen/16_buserror.c\
-				./strlen/17_ko_case.c\
-				./strlen/18_zero_divide.c
+				./strlen/14_bigger_str_test.c
 ATOISRC			= ./atoi/00_launcher.c\
 				./atoi/01_basic_test.c\
 				./atoi/02_error_a.c\
