@@ -35,7 +35,6 @@ int	over_long11(void);
 int	over_long12(void);
 int	over_long13(void);
 int	null_p(void);
-int	time_out(void);
 int	isalnum_launcher(void);
 int	alnum_basic_test(void);
 int	alnum_basic_test2(void);
