@@ -10,6 +10,7 @@ int	main(void)
 	puts("*********************************\x1b[0m\n\x1b[39m");
 	ret = 0;
 	ret += atoi_launcher();
+	ret += isalnum_launcher();
 	ret += strlen_launcher();
 	ret += tolower_launcher();
 	ret += toupper_launcher();
