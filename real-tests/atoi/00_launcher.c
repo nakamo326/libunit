@@ -6,7 +6,6 @@ int	atoi_launcher(void)
 
 	load_test(&lst, "basic_tset", atoi_basic_test);
 	load_test(&lst, "error_a", error_a);
-	load_test(&lst, "null_p", null_p);
 	load_test(&lst, "over_long13", over_long13);
 	load_test(&lst, "over_long12", over_long12);
 	load_test(&lst, "over_long11", over_long11);
