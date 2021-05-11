@@ -18,6 +18,7 @@ void	print_file(char *case_name, int res)
 		printf("[TIMEOUT] : %s\n", case_name);
 	else
 		printf("[UNKNOWN] : %s\n", case_name);
+	fflush(stdout);
 }
 
 void	file_out(char *case_name, int res, int fd)
