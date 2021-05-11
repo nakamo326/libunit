@@ -8,7 +8,6 @@ INCLUDE='# include <string.h>
 # include <limits.h>
 # include <ctype.h>
 
-
 '
 
 HEADER="#ifndef ${NAME}"
