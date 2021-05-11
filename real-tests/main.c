@@ -15,4 +15,3 @@ int	main(void)
 	ret += toupper_launcher();
 	return (ret);
 }
-

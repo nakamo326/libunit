@@ -13,4 +13,3 @@ int	main(void)
 	ret += strlen_launcher();
 	return (ret);
 }
-

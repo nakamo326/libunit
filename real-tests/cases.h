@@ -6,7 +6,6 @@
 # include <limits.h>
 # include <ctype.h>
 
-
 int	atoi_launcher(void);
 int	atoi_basic_test(void);
 int	error_a(void);
