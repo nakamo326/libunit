@@ -84,9 +84,11 @@ int	run_test(t_clist *lst, char *title)
 
 	fd = open("../result.txt",
 			O_WRONLY | O_CREAT | O_APPEND, S_IRWXU | S_IRWXG | S_IRWXO);
+	printf("\x1b[1m%s\x1b[0m\n\n", title);
 	write(fd, title, my_strlen(title));
 	write(fd, "\n", 1);
 	ret = run_tester(lst, fd);
+	printf("\x1b[1m*********************************\n\n\x1b[0m");
 	write(fd, "\n", 1);
 	close(fd);
 	return (ret);

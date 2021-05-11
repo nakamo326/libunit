@@ -25,7 +25,7 @@ int	run_test(t_clist *lst, char *title)
 	long	ko;
 	t_clist	*start;
 
-	(void)title;
+	printf("\x1b[1m%s\x1b[0m\n\n", title);
 	ko = 0;
 	cases = 0;
 	start = lst;
@@ -39,5 +39,6 @@ int	run_test(t_clist *lst, char *title)
 			break ;
 	}
 	printf("\n%ld/%ld tests passed\n\n", cases + ko, cases);
+	printf("\x1b[1m*********************************\n\n\x1b[0m");
 	return (-!!ko);
 }

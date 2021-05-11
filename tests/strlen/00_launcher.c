@@ -5,7 +5,6 @@ int	strlen_launcher(void)
 {
 	t_clist	*lst;
 
-	puts("\x1b[1mSTRLEN\x1b[0m\n");
 	load_test(&lst, "basic_test", basic_test);
 	load_test(&lst, "basic_test2", basic_test2);
 	load_test(&lst, "basic_test3", basic_test3);
