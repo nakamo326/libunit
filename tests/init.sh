@@ -78,8 +78,7 @@ int	main(void)
 
 MAIN_C+="$(find . -name '*.c' | sed '/\/00.*\.c/!d' | xargs cat 2>/dev/null | sed -e '/^\w/!d' -e "s/(\w*)$/();/g" -e "s/^\w*\t/\tret += /g")
 	return (ret);
-}
-"
+}"
 
 echo "${MAIN_C}" > main.c
 echo "${HEADER}" > cases.h
