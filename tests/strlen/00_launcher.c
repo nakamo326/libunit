@@ -19,10 +19,10 @@ int	strlen_launcher(void)
 	load_test(&lst, "include_nullchar_test", include_nullchar_test);
 	load_test(&lst, "bigger_str_test", bigger_str_test);
 	load_test(&lst, "include_allascci_test", include_allascii_test);
-	load_test(&lst, "NULL_test", null_test);
-	load_test(&lst, "bus_error", bus_error);
-	load_test(&lst, "ko_case", ko_case);
-	load_test(&lst, "zero_divide", zero_divide);
-	load_test(&lst, "not_endwith_nullchar", double_free);
+	// load_test(&lst, "NULL_test", null_test);
+	// load_test(&lst, "bus_error", bus_error);
+	// load_test(&lst, "ko_case", ko_case);
+	// load_test(&lst, "zero_divide", zero_divide);
+	// load_test(&lst, "not_endwith_nullchar", double_free);
 	return (launch_tests(&lst));
 }
