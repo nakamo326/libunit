@@ -1,8 +1,8 @@
 #include "../cases.h"
 
-int toupper_basic_test2(void)
+int	toupper_basic_test2(void)
 {
-	int c;
+	int	c;
 
 	c = 'A';
 	while (c <= 'Z')

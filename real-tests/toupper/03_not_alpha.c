@@ -1,8 +1,8 @@
 #include "../cases.h"
 
-int toupper_not_alpha(void)
+int	toupper_not_alpha(void)
 {
-	int c;
+	int	c;
 
 	c = '[';
 	while (c < 'a')

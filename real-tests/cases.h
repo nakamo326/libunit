@@ -59,9 +59,9 @@ int	tolower_null_char(void);
 int	tolower_not_ascii(void);
 int	toupper_launcher(void);
 int	toupper_basic_test(void);
-int toupper_basic_test2(void);
-int toupper_not_alpha(void);
-int toupper_null_char(void);
-int toupper_not_ascii(void);
+int	toupper_basic_test2(void);
+int	toupper_not_alpha(void);
+int	toupper_null_char(void);
+int	toupper_not_ascii(void);
 
 #endif
