@@ -28,4 +28,4 @@ bonus		: $(B_OBJS)
 	$(RM) $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(B_OBJS)
 
-.PHONY		: all clean fclean re bonus
+.PHONY		: all clean fclean re bonus test

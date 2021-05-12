@@ -31,4 +31,4 @@ bonus:
 	$(MAKE) bonus -C $(TESTS_DIR)
 	$(MAKE) bonus -C $(REALTESTS_DIR)
 
-.PHONY:	all clean fclean re bonus
+.PHONY:	all clean fclean re bonus test rtest
