@@ -14,8 +14,6 @@ HEADER+="# define ${NAME}${INCLUDE}"
 HEADER+=$(find . -type d -name libft -prune -o -type f -name '*.c' | xargs cat | sed -e '/^\w.*)$/!d' -e '/^static/d' -e "s/)$/);/g")
 HEADER+="${LF}${LF}#endif"
 
-sed -i -e "s@^SRCS\s*=.*@SRCS\t\t\t= $(find . -name '*.c' | tr '\n' ' ')@g" Makefile
-
 MAIN_C='#include "cases.h"
 #include <stdio.h>
 
@@ -35,3 +33,4 @@ MAIN_C+="$(find . -name '*.c' | sed '/\/00.*\.c/!d' | xargs cat 2>/dev/null | se
 
 echo "${MAIN_C}" > main.c
 echo "${HEADER}" > cases.h
+sed -i -e "s@^SRCS\s*=.*@SRCS\t\t\t= $(find . -name '*.c' | tr '\n' ' ')@g" Makefile
