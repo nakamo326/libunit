@@ -55,5 +55,6 @@ int	null_test(void);
 int	bus_error(void);
 int	ko_case(void);
 int	zero_divide(void);
+int	sig_ill(void);
 
 #endif

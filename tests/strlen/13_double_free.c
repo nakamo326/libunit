@@ -2,6 +2,6 @@
 
 int	double_free(void)
 {
-	kill(getpid(), SIGABRT);
+	abort();
 	return (0);
 }
