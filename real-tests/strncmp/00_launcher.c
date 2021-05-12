@@ -11,5 +11,6 @@ int	strlcat_launcher(void)
 	load_test(&lst, "str2_empty", strncmp_empty_string_test3);
 	load_test(&lst, "both_empty", strncmp_empty_string_test);
 	load_test(&lst, "zero_len", strncmp_zerolen_test);
+	load_test(&lst, "include_nullchar", strncmp_include_nullchar_test);
 	return (launch_tests(&lst, "STRNCMP"));
 }
