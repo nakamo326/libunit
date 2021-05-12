@@ -1,19 +1,6 @@
 #!/bin/bash
 
-LF=$'\n'
-NAME="CASES_H${LF}"
-INCLUDE='# include <string.h>
-# include "../real-tests/libft/libft.h"
-# include "../framework/libunit.h"
-# include <limits.h>
-
-'
-
-HEADER="#ifndef ${NAME}"
-HEADER+="# define ${NAME}${INCLUDE}"
-HEADER+=$(find . -type d -name libft -prune -o -type f -name '*.c' | xargs cat | sed -e '/^\w.*)$/!d' -e '/^static/d' -e "s/)$/);/g")
-HEADER+="${LF}${LF}#endif"
-
+NAME_H="cases.h"
 MAIN_C='#include "cases.h"
 #include <stdio.h>
 
@@ -31,6 +18,13 @@ MAIN_C+="$(find . -name '*.c' | sed '/\/00.*\.c/!d' | xargs cat 2>/dev/null | se
 	return (ret);
 }"
 
+makefile=$(sed -e "s@^SRCS\s*=.*@SRCS\t\t\t= $(find . -name '*.c' | tr '\n' ' ')@g" Makefile)
+header="$(sed -e "/\(^\w\w*\t*\w.*);$\|#endif\)/d" -e '/^$/d' ${NAME_H})
+
+$(find . -type d -name libft -prune -o -type f -name '*.c' | xargs cat | sed -e '/^\w.*)$/!d' -e '/^static/d' -e "s/)$/);/g")
+
+#endif"
+
+echo "${makefile}" > Makefile
 echo "${MAIN_C}" > main.c
-echo "${HEADER}" > cases.h
-sed -i -e "s@^SRCS\s*=.*@SRCS\t\t\t= $(find . -name '*.c' | tr '\n' ' ')@g" Makefile
+echo "${header}" > ${NAME_H}
