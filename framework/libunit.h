@@ -35,6 +35,7 @@ typedef struct s_data
 
 t_clist	*ft_clstnew(void *data);
 void	ft_clstadd_front(t_clist **lst, t_clist *new);
+void	ft_clstadd_front(t_clist **lst, t_clist *new);
 int		ft_setptr(void *dest, void *p);
 void	err_exit(t_clist *lst, t_data *data);
 void	load_test(t_clist **lst, char *case_name, int (*f_case)());
