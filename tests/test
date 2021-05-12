@@ -1,0 +1,28 @@
+#ifndef CASES_H
+# define CASES_H
+# include <string.h>
+# include "../real-tests/libft/libft.h"
+# include "../framework/libunit.h"
+# include <limits.h>
+
+
+int	print_result(char *case_name, int res);
+int	launch_tests(t_clist **lst, char *title);
+size_t	my_strlen(char *s);
+void	err_exit(t_clist *lst, t_data *data);
+void	load_test(t_clist **lst, char *case_name, int (*f_case)());
+int	ft_setptr(void *dest, void *p);
+void	ft_clstadd_front(t_clist **lst, t_clist *new);
+t_clist	*ft_clstnew(void *data);
+void	lst_free_next(t_clist **lst, t_clist *next, void *data);
+void	lst_clear(t_clist *lst);
+int	case_result(t_clist *lst);
+int	run_test(t_clist *lst, char *title);
+void	print_file(char *case_name, int res);
+void	file_out(char *case_name, int res, int fd);
+int	case_result(t_clist *lst);
+int	run_tester(t_clist *lst, int fd);
+int	run_test(t_clist *lst, char *title);
+
+#endif
+

@@ -12,18 +12,8 @@ INCLUDE='# include <string.h>
 
 HEADER="#ifndef ${NAME}"
 HEADER+="# define ${NAME}${INCLUDE}"
-HEADER+=$(find . -type d -name libft -prune -o -name '*.c'  | xargs cat 2>/dev/null | sed -e '/^\w/!d' | sed -e "s/)$/);/g")
+HEADER+=$(find . -type d -name libft -prune -o -type f -name '*.c' | xargs cat | sed -e '/^\w.*)$/!d' -e '/^static/d' -e "s/)$/);/g")
 HEADER+="${LF}${LF}#endif"
-
-
-makefile="NAME			= libunit
-CC				= gcc
-CFLAGS			= -Wall -Wextra -Werror
-LIBFT_DIR		= ../real-tests/libft
-FRAMEWORK_DIR	= ../framework
-LIBUNIT_DIR		= ../
-SRCS			= $(find . -name '*.c' | tr '\n' ' ')
-"
 
 MAIN_C='#include "cases.h"
 #include <stdio.h>
@@ -38,12 +28,11 @@ int	main(void)
 	ret = 0;
 '
 
-MAIN_C+="$(find . -name '*.c' | sed '/\/00.*\.c/!d' | xargs cat 2>/dev/null | sed -e '/^\w/!d' -e "s/(\w*)$/();/g" -e "s/^\w*\t/\tret += /g")
+MAIN_C+="$(find . -type f -name '*.c' | sed '/\/00.*\.c/!d' | xargs cat | sed -e '/^\w/!d' -e "s/(\w*)$/();/g" -e "s/^\w*\t/\tret += /g")
 	return (ret);
 }"
 
 echo "${MAIN_C}" > main.c
 echo "${HEADER}" > cases.h
 
-files=$(find . -name '*.c' | tr '\n' ' ')
-sed -i -e "s@^SRCS\s*=.*@SRCS\t\t\t\t= ${files}@g" Makefile
+sed -i -e "s@^SRCS\s*=.*@SRCS\t\t\t= $(find . -name '*.c' | tr '\n' ' ')@g" Makefile

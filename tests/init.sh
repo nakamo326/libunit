@@ -11,11 +11,10 @@ INCLUDE='# include <string.h>
 
 HEADER="#ifndef ${NAME}"
 HEADER+="# define ${NAME}${INCLUDE}"
-HEADER+=$(find . -type d -name libft -prune -o -name '*.c'  | xargs cat 2>/dev/null | sed -e '/^\w/!d' | sed -e "s/)$/);/g")
+HEADER+=$(find . -type d -name libft -prune -o -type f -name '*.c' | xargs cat | sed -e '/^\w.*)$/!d' -e '/^static/d' -e "s/)$/);/g")
 HEADER+="${LF}${LF}#endif"
 
-files=$(find . -name '*.c' | tr '\n' ' ')
-sed -i -e "s@^SRCS\s*=.*@SRCS\t\t\t\t= ${files}@g" Makefile
+sed -i -e "s@^SRCS\s*=.*@SRCS\t\t\t= $(find . -name '*.c' | tr '\n' ' ')@g" Makefile
 
 MAIN_C='#include "cases.h"
 #include <stdio.h>
