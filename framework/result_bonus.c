@@ -28,8 +28,6 @@ void	file_out(char *case_name, int res, int fd)
 	dup2(fd, 1);
 	print_file(case_name, res);
 	dup2(stdout_tmp, 1);
-	fflush(fdopen(fd, "r+"));
-	
 }
 
 int	case_result(t_clist *lst)
@@ -70,6 +68,7 @@ int	run_tester(t_clist *lst, int fd)
 		lst = lst->prev;
 		res = case_result(lst);
 		ko += print_result(((t_data *)lst->data)->case_name, res);
+		fflush(fdopen(fd, "r+"));
 		if (res && fd > 0)
 			file_out(((t_data *)lst->data)->case_name, res, fd);
 		if (lst == start)
