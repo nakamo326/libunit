@@ -29,6 +29,7 @@ void	file_out(char *case_name, int res, int fd)
 	print_file(case_name, res);
 	dup2(stdout_tmp, 1);
 	fflush(fdopen(fd, "r+"));
+	
 }
 
 int	case_result(t_clist *lst)
