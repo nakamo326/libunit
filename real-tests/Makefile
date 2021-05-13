@@ -38,6 +38,7 @@ clean:
 	$(MAKE) clean -C $(FRAMEWORK_DIR)
 
 fclean: clean
+	$(RM) $(NAME)
 	$(RM) ../result.txt
 	$(MAKE) fclean -C $(LIBFT_DIR)
 	$(MAKE) fclean -C $(FRAMEWORK_DIR)

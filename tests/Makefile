@@ -39,6 +39,7 @@ clean:
 
 fclean: clean
 	$(RM) ../result.txt
+	$(RM) $(NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
 	$(MAKE) fclean -C $(FRAMEWORK_DIR)
 
