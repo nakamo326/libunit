@@ -3,7 +3,7 @@
 NAME_H="cases.h"
 t=$(printf "\t")
 
-MAIN_C="$(find -type f -name main.c | xargs cat | sed -e "/.*launcher.*);$/d" -e "/return (.*);$/d" -e "/^}$/d")
+MAIN_C="$(find . -type f -name main.c | xargs cat | sed -e "/.*launcher.*);$/d" -e "/return (.*);$/d" -e "/^}$/d")
 $(find . -type f -name '*.c' | sed '/\/00.*\.c/!d' | xargs cat | sed -e '/^[a-zA-Z]/!d' -e "s/(.*)$/();/g" -e "s/^[a-zA-Z][a-zA-Z_0-9]*${t}/${t}ret += /g")
 	return (ret);
 }"
