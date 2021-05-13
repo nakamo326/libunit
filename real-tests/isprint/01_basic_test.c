@@ -2,7 +2,7 @@
 
 int	isprint_basic_test(void)
 {
-	int c;
+	int	c;
 
 	c = 'a';
 	while (c <= 'z')

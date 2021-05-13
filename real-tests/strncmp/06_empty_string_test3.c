@@ -1,6 +1,6 @@
 #include "../cases.h"
 
-int strncmp_empty_string_test3(void)
+int	strncmp_empty_string_test3(void)
 {
 	size_t	len;
 	int		actual;
