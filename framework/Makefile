@@ -16,6 +16,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
+
 bonus		: $(B_OBJS)
 	$(RM) $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(B_OBJS)

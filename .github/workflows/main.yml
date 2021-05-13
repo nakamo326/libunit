@@ -12,3 +12,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a one-line script
       run: make bonus && make test
+      - name: Install Norminette.
+        run: |
+          python3 -m pip install --upgrade pip setuptools
+          python3 -m pip install norminette
+      - name: Run Norminette.
+        run: norminette ./framework
