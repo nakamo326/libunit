@@ -34,6 +34,7 @@ bonus : $(OBJS)
 	$(RM) ../result.txt
 
 fclean: clean
+	$(RM) result.txt
 	$(MAKE) fclean -C $(LIBFT_DIR)
 	$(MAKE) fclean -C $(FRAMEWORK_DIR)
 	rm -f $(NAME) $(LIBUNIT_DIR)/libft.a $(LIBUNIT_DIR)/libunit.a
