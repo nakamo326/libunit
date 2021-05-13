@@ -3,14 +3,13 @@
 int	strncmp_basic_test(void)
 {
 	size_t	len;
-	int		actual;
+	int		act;
 	int		expected;
+	size_t	bitlen;
 
+	bitlen = sizeof(int) * CHAR_BIT - 1;
 	len = 10;
-	actual = ft_strncmp("aa", "aa", len);
+	act = ft_strncmp("aa", "aa", len);
 	expected = strncmp("aa", "aa", len);
-	if ((actual < 0 && expected < 0) || (actual > 0 && expected > 0)
-		|| (actual == 0 && expected == 0))
-		return (0);
-	return (-1);
+	return (-((act ^ expected) >> bitlen || (--act ^ --expected) >> bitlen));
 }
