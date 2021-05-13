@@ -5,9 +5,9 @@ int	main(void)
 {
 	int	ret;
 
-	puts("\n\x1b[36m\x1b[1m*********************************");
+	puts("\n"CYAN"\x1b[1m*********************************");
 	puts("*****    42 - Unit Tests    *****");
-	puts("*********************************\x1b[0m\n\x1b[39m");
+	puts("*********************************\x1b[0m\n"RESET);
 	ret = 0;
 	ret += atoi_launcher();
 	ret += isprint_launcher();
