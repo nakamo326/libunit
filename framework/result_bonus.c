@@ -66,7 +66,6 @@ int	run_tester(t_clist *lst, int fd)
 	{
 		cases++;
 		lst = lst->prev;
-		fflush(fdopen(fd, "r+"));
 		res = case_result(lst);
 		ko += print_result(((t_data *)lst->data)->case_name, res);
 		if (res && fd > 0)
