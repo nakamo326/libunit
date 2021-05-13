@@ -16,6 +16,10 @@ all			: $(NAME)
 $(NAME)		: $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
+bonus		: $(B_OBJS)
+	$(RM) $(NAME)
+	$(AR) $(ARFLAGS) $(NAME) $(B_OBJS)
+
 clean		:
 	$(RM) $(OBJS) $(B_OBJS)
 
@@ -23,9 +27,5 @@ fclean		: clean
 	$(RM) $(NAME) 
 
 re			: fclean all
-
-bonus		: $(B_OBJS)
-	$(RM) $(NAME)
-	$(AR) $(ARFLAGS) $(NAME) $(B_OBJS)
 
 .PHONY		: all clean fclean re bonus test

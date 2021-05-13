@@ -5,11 +5,11 @@ int	main(void)
 {
 	int	ret;
 
-	puts("\n"CYAN"\x1b[1m*********************************");
-	puts("*****    42 - Unit Tests    *****");
-	puts("*********************************\x1b[0m\n"RESET);
+	printf("\n"CYAN"\x1b[1m*********************************\n");
+	printf("*****    42 - Unit Tests    *****\n");
+	printf("*********************************\x1b[0m\n\n"RESET);
 	ret = 0;
-	ret += atoi_launcher();
-	ret += strlen_launcher();
+	ret |= atoi_launcher();
+	ret |= strlen_launcher();
 	return (ret);
 }

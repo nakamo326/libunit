@@ -2,6 +2,6 @@
 
 int	time_out(void)
 {
-	sleep(10);
+	sleep(5);
 	return (0);
 }
