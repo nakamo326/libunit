@@ -5,7 +5,7 @@ int	norm_hacker(int flag, int assign)
 	static int	g;
 
 	if (flag == INC)
-		return(g++);
+		return (g++);
 	else if (flag == RET)
 		return (g);
 	else if (flag == ASSIGN)
