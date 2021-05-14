@@ -1,3 +1,5 @@
+#!/bin/bash
+
 NAME_H="libunit.h"
 
 prot=$(find . -type d -name libft -prune -o -type f -name '*.c' | xargs cat | sed -e '/^[a-zA-Z].*)$/!d' -e '/^static/d' -e "s/)$/);/g")

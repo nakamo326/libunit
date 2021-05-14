@@ -1,5 +1,21 @@
 #include "libunit.h"
 
+int	norm_hacker(int flag, int assign)
+{
+	static int	g;
+
+	if (flag == INC)
+		return(g++);
+	else if (flag == RET)
+		return (g);
+	else if (flag == ASSIGN)
+	{
+		g = assign;
+		return (g);
+	}
+	return (g);
+}
+
 size_t	my_strlen(char *s)
 {
 	size_t	i;
@@ -35,5 +51,5 @@ void	load_test(t_clist **lst, char *case_name, int (*f_case)())
 	if (!ft_setptr(&new, ft_clstnew(data)))
 		err_exit(*lst, data);
 	ft_clstadd_front(lst, new);
-	g_start = 1;
+	norm_hacker(ASSIGN, 1);
 }

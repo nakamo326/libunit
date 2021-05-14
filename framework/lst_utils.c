@@ -8,7 +8,7 @@ int	ft_setptr(void *dest, void *p)
 
 void	ft_clstadd_front(t_clist **lst, t_clist *new)
 {
-	if (g_start)
+	if (norm_hacker(RET, 0))
 	{
 		new->next = *lst;
 		new->prev = (*lst)->prev;

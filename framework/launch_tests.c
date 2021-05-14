@@ -27,10 +27,10 @@ int	launch_tests(t_clist **lst, char *title)
 
 	if (!lst)
 		err_exit(NULL, NULL);
-	if (!g_start || !*lst)
+	if (!norm_hacker(RET, 0) || !*lst)
 		return (-!!puts("\x1b[31m[KO]      : no test detected\x1b[39m"));
 	res = run_test(*lst, title);
 	lst_clear(*lst);
-	g_start = 0;
+	norm_hacker(ASSIGN, 0);
 	return (res);
 }

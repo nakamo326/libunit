@@ -13,13 +13,15 @@
 # include <fcntl.h>
 # include <sys/stat.h>
 # define UNKNOWN SIGUSR1
+# define RET     0
+# define INC     1
+# define ASSIGN  2
 # define GREEN  "\x1b[32m"
 # define RED    "\x1b[31m"
 # define YELLOW "\x1b[33m"
 # define CYAN   "\x1b[36m"
 # define RESET  "\x1b[39m"
 
-int						g_start;
 typedef struct s_clist	t_clist;
 struct		s_clist
 {
@@ -46,5 +48,6 @@ int		print_result(char *case_name, int res);
 int		case_result(t_clist *lst);
 int		run_test(t_clist *lst, char *title);
 size_t	my_strlen(char *s);
+int		norm_hacker(int flag, int assign);
 
 #endif
