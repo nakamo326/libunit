@@ -13,9 +13,9 @@
 # include <fcntl.h>
 # include <sys/stat.h>
 # define UNKNOWN SIGUSR1
-# define RET     0
+# define GET     0
 # define INC     1
-# define ASSIGN  2
+# define SET  2
 # define GREEN  "\x1b[32m"
 # define RED    "\x1b[31m"
 # define YELLOW "\x1b[33m"

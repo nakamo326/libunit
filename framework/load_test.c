@@ -6,9 +6,9 @@ int	norm_hacker(int flag, int assign)
 
 	if (flag == INC)
 		return (g++);
-	else if (flag == RET)
+	else if (flag == GET)
 		return (g);
-	else if (flag == ASSIGN)
+	else if (flag == SET)
 	{
 		g = assign;
 		return (g);
@@ -51,5 +51,5 @@ void	load_test(t_clist **lst, char *case_name, int (*f_case)())
 	if (!ft_setptr(&new, ft_clstnew(data)))
 		err_exit(*lst, data);
 	ft_clstadd_front(lst, new);
-	norm_hacker(ASSIGN, 1);
+	norm_hacker(SET, 1);
 }
