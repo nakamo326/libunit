@@ -7,9 +7,10 @@
 
 int	print_result(char *title, char *case_name, int res)
 {
+	// const char *result_state[] = {""}
 	(void)title;
 	if (!res)
-		// ft_putstrs_fd((char *[]){GREEN "[OK]"RESET"      : ", case_name, " \n", NULL}, STDOUT_FILENO);
+		// ft_putstrs_fd((char *[]){GREEN "[OK]" RESET "      : ", case_name, " \n", NULL}, STDOUT_FILENO);
 		printf(GREEN "[OK]"RESET"      : %s\n", case_name);
 	else if (res == -1)
 		printf(RED "[KO]" RESET "      : %s\n", case_name);

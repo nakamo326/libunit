@@ -4,6 +4,8 @@
 
 #define NO_TEST "[KO]      : no test detected"
 
+static size_t	g_testcount;
+
 int	norm_hacker(int flag, int assign)
 {
 	static int	g;
@@ -34,13 +36,19 @@ void	load_test(t_clist **lst, char *case_name, int (*f_case)())
 
 	if (!lst || !case_name || !f_case)
 		return ;
+	if (!g_testcount)
+	{
+		*lst = ft_clstnew(NULL);
+		if (!*lst)
+			err_exit(*lst, NULL);
+	}
 	data = malloc(sizeof(t_data));
 	if (!data)
 		err_exit(*lst, NULL);
 	*data = (t_data){.case_name = case_name, .f_case = f_case};
-	if (ft_clstnew_add_back(*lst, data))
+	if (!ft_clstnew_add_back(*lst, data))
 		err_exit(*lst, data);
-	norm_hacker(SET, 1);
+	g_testcount++;
 }
 
 int	launch_tests(t_clist **lst, char *title)
@@ -50,13 +58,13 @@ int	launch_tests(t_clist **lst, char *title)
 
 	if (!lst)
 		err_exit(NULL, NULL);
-	if (!norm_hacker(GET, 0) || !*lst)// || ft_clst_isend(*lst)) //dame
+	if (!g_testcount || !*lst)// || ft_clst_isend(*lst)) //dame
 	{
 		ft_putstrs_fd((char *[]){RED "[", title, NO_TEST RESET, NULL}, fd);
 		return (-1);
 	}
 	res = run_test(*lst, title);
 	ft_clst_clear(lst, free);
-	norm_hacker(SET, 0);
+	g_testcount = 0;
 	return (res);
 }

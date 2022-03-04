@@ -63,7 +63,7 @@ $(NAME): $(OBJS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)/$(*D)
-	@$(CC) $(CFLAGS) -c $< $(IOPT) -o $@
+	$(CC) $(CFLAGS) -c $< $(IOPT) -o $@
 	@echo -e "compile: $(MGN)$<$(NC)\
 	$$(yes ' ' | head -n $$(expr $(ALIGN) - $$((`echo $< | wc -m` - 1))) | tr -d '\n') -> \
 	$(GRN)$@$(NC)"

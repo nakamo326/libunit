@@ -46,12 +46,12 @@ int	run_test(t_clist *suite, char *title)
 	while (!ft_clst_isend(suite))
 	{
 		total_cases++;
-		suite = suite->next;
 		res = case_result(suite);
 		if(res == 0)
 			success_cases++;
 		testcase = suite->data;
 		ko += print_result(title, testcase->case_name, res);
+		suite = suite->next;
 	}
 	print_suite_result(total_cases + ko, total_cases);
 
