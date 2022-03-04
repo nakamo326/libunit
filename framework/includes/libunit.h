@@ -21,33 +21,25 @@
 # define YELLOW "\x1b[33m"
 # define CYAN   "\x1b[36m"
 # define RESET  "\x1b[39m"
-
+# define BOLD   "\x1b[1m"
+# define B_RESET   "\x1b[0m"
+# define BORDER "*********************************"
 typedef struct s_clist	t_clist;
-struct		s_clist
-{
-	void	*data;
-	t_clist	*next;
-	t_clist	*prev;
-};
 typedef struct s_data
 {
 	char	*case_name;
 	int		(*f_case)();
 }	t_data;
 
-t_clist	*ft_clstnew(void *data);
-void	ft_clstadd_front(t_clist **lst, t_clist *new);
-void	ft_clstadd_front(t_clist **lst, t_clist *new);
-int		ft_setptr(void *dest, void *p);
-void	err_exit(t_clist *lst, t_data *data);
-void	load_test(t_clist **lst, char *case_name, int (*f_case)());
-void	lst_clear(t_clist *lst);
-void	lst_free_next(t_clist **lst, t_clist *next, void *data);
-int		launch_tests(t_clist **lst, char *title);
-int		print_result(char *case_name, int res);
 int		case_result(t_clist *lst);
-int		run_test(t_clist *lst, char *title);
-size_t	my_strlen(char *s);
+int		ft_setptr(void *dest, void *p);
+int		launch_tests(t_clist **lst, char *title);
 int		norm_hacker(int flag, int assign);
+int		print_result(char *title, char *case_name, int res);
+int		run_test(t_clist *suite, char *title);
+void	err_exit(t_clist *lst, t_data *data);
+void	ft_putstrs_fd(char **strs, int fd);
+void	load_test(t_clist **lst, char *case_name, int (*f_case)());
+void	print_suite_result(int success_num, int total_num);
 
 #endif
