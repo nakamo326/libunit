@@ -3,6 +3,13 @@
 #include "libft.h"
 
 #define OK "[OK]"
+#define KO "[KO]"
+#define M_SIGSEGV "[SIGSEGV]"
+#define M_SIGABRT "[SIGABRT]"
+#define M_SIGBUS "[SIGBUS]"
+#define M_SIGFPE "[SIGFPE]"
+#define M_TIMEOUT "[TIMEOUT]"
+#define M_UNKNOWN "[UNKNOWN]"
 
 // [test_function]:[test_name]:[status]
 
@@ -19,19 +26,19 @@ int	print_result(char *title, char *case_name, int res)
 	if (!res)
 		ft_putendl_fd(GREEN OK RESET, STDOUT_FILENO);
 	else if (res == -1)
-		printf(RED "[KO]" RESET "      : %s\n", case_name);
+		ft_putendl_fd(RED KO RESET, STDOUT_FILENO);
 	else if (res == SIGSEGV)
-		printf(YELLOW"[SEGV]"RESET"    : %s\n", case_name);
+		ft_putendl_fd(YELLOW M_SIGSEGV RESET, STDOUT_FILENO);
 	else if (res == SIGABRT)
-		printf(YELLOW"[ABORT]"RESET"   : %s\n", case_name);
+		ft_putendl_fd(YELLOW M_SIGABRT RESET, STDOUT_FILENO);
 	else if (res == SIGBUS)
-		printf(YELLOW"[BUSE]"RESET"    : %s\n", case_name);
+		ft_putendl_fd(YELLOW M_SIGBUS RESET, STDOUT_FILENO);
 	else if (res == SIGFPE)
-		printf(YELLOW"[FPE]"RESET"     : %s\n", case_name);
+		ft_putendl_fd(YELLOW M_SIGFPE RESET, STDOUT_FILENO);
 	else if (res == SIGALRM)
-		printf(YELLOW"[TIMEOUT]"RESET" : %s\n", case_name);
+		ft_putendl_fd(YELLOW M_TIMEOUT RESET, STDOUT_FILENO);
 	else
-		printf(YELLOW"[UNKNOWN]"RESET" : %s\n", case_name);
+		ft_putendl_fd(YELLOW M_UNKNOWN RESET, STDOUT_FILENO);
 	return (-!!res); // signal == -1 , exit = 0 , ko = -1
 }
 
