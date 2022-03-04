@@ -18,7 +18,7 @@ int	print_result(char *case_name, int res)
 		printf(YELLOW"[TIMEOUT]"RESET" : %s\n", case_name);
 	else
 		printf(YELLOW"[UNKNOWN]"RESET" : %s\n", case_name);
-	return (-!!res);
+	return (-!!res); // signal == -1 , exit = 0 , ko = -1
 }
 
 int	launch_tests(t_clist **lst, char *title)

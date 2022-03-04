@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yohki <yohki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 11:10:33 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/03/04 21:13:42 by ynakamot         ###   ########.fr       */
+/*   Created: 2020/10/16 01:33:10 by nosuzuki          #+#    #+#             */
+/*   Updated: 2021/12/18 08:43:17 by yohki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
 
-long	ft_abs(long n)
+void	ft_lstadd_back(t_list **lst, t_list *newlst)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	if (!lst)
+		return ;
+	if (!*lst)
+		*lst = newlst;
+	else
+		ft_lstlast(*lst)->next = newlst;
 }

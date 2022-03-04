@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nosuzuki <nosuzuki@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 11:10:33 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/03/04 21:13:42 by ynakamot         ###   ########.fr       */
+/*   Created: 2020/10/15 22:30:57 by nosuzuki          #+#    #+#             */
+/*   Updated: 2021/10/19 17:28:19 by nosuzuki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
+#include <limits.h>
 
-long	ft_abs(long n)
+int	ft_lstsize(t_list *lst)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	size_t	size;
+
+	size = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	if (size > INT_MAX)
+		return (-1);
+	return (size);
 }

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nosuzuki <nosuzuki@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 11:10:33 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/03/04 21:13:42 by ynakamot         ###   ########.fr       */
+/*   Created: 2020/10/15 02:02:55 by nosuzuki          #+#    #+#             */
+/*   Updated: 2021/10/19 17:33:37 by nosuzuki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
+#include "ft_utils.h"
+#include <stdlib.h>
 
-long	ft_abs(long n)
+t_list	*ft_lstnew(void *content)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	t_list	*lst;
+
+	if (!ft_setptr(&lst, malloc(sizeof(t_list))))
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
 }
