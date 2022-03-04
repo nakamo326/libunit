@@ -4,12 +4,16 @@ SHELL := /bin/bash
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror -MMD -MP
 ARFLAGS := scr
-INCLUDES = ./includes $(LIBFTINCLUDE)
+INCLUDE = ./includes
+INCLUDES =  $(INCLUDE) $(LIBFTINCLUDE)
 IOPT	= $(addprefix -I , $(INCLUDES))
 
 SRCDIR := srcs
 SRCFILE	=\
-	srcs/launch_tests.c\
+	srcs/framework/launch_tests.c\
+	srcs/framework/load_test.c\
+	srcs/framework/lst_utils.c\
+	srcs/framework/result.c\
 	srcs/list/ft_clst_begin.c\
 	srcs/list/ft_clst_clear.c\
 	srcs/list/ft_clst_insert.c\
@@ -28,10 +32,6 @@ SRCFILE	=\
 	srcs/list/ft_clstfirst.c\
 	srcs/list/ft_clstnew.c\
 	srcs/list/ft_clstnew_add_back.c\
-	srcs/load_test.c\
-	srcs/lst_utils.c\
-	srcs/result.c\
-	srcs/result_bonus.c\
 
 OBJDIR := objs
 OBJS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.o))
@@ -57,8 +57,9 @@ _libft	:
 $(LIBFT) : _libft
 
 $(NAME): $(OBJS)
-	@$(AR) $(ARFLAGS) $@ $^
-	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
+	$(AR) $(ARFLAGS) framework.a $^
+	$(AR) -cqT $@ framework.a $(LIBFT)
+#	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)/$(*D)
@@ -69,6 +70,8 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 
 add	:
 	bash make.sh $(SRCDIR) SRCFILE
+	bash header.sh $(SRCDIR)/framework $(INCLUDE)/libunit.h
+
 
 debug: CFLAGS += -g -fsanitize=integer -fsanitize=address -DDEBUG
 debug: re

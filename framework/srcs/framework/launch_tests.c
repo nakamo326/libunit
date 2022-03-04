@@ -1,9 +1,15 @@
 #include "libunit.h"
 #include "ft_list.h"
+#include "libft.h"
 
-int	print_result(char *case_name, int res)
+
+// [test_function]:[test_name]:[status]
+
+int	print_result(char *title, char *case_name, int res)
 {
+	(void)title;
 	if (!res)
+		// ft_putstrs_fd((char *[]){GREEN "[OK]"RESET"      : ", case_name, " \n", NULL}, STDOUT_FILENO);
 		printf(GREEN "[OK]"RESET"      : %s\n", case_name);
 	else if (res == -1)
 		printf(RED "[KO]" RESET "      : %s\n", case_name);
@@ -22,16 +28,12 @@ int	print_result(char *case_name, int res)
 	return (-!!res); // signal == -1 , exit = 0 , ko = -1
 }
 
-int	launch_tests(t_clist **lst, char *title)
+void	ft_putstrs_fd(char **strs, int fd)
 {
-	int	res;
-
-	if (!lst)
-		err_exit(NULL, NULL);
-	if (!norm_hacker(GET, 0) || !*lst)
-		return (-!!puts("\x1b[31m[KO]      : no test detected\x1b[39m"));
-	res = run_test(*lst, title);
-	ft_clst_clear(lst, free);
-	norm_hacker(SET, 0);
-	return (res);
+	while (*strs)
+	{
+		ft_putstr_fd(*strs, fd);
+		strs++;
+	}
 }
+
