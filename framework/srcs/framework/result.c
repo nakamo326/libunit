@@ -53,7 +53,7 @@ int	run_test(t_clist *suite, char *title)
 		ko += print_result(title, testcase->case_name, res);
 		suite = suite->next;
 	}
-	print_suite_result(total_cases + ko, total_cases);
+	print_suite_result(success_cases, total_cases);
 
 	return (-!!ko);
 }

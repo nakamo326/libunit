@@ -2,16 +2,22 @@
 #include "ft_list.h"
 #include "libft.h"
 
+#define OK "[OK]"
 
 // [test_function]:[test_name]:[status]
 
+void output_case(char *title, char *case_name)
+{
+	const int fd = STDOUT_FILENO;
+
+	ft_putstrs_fd((char *[]){title, " : ", case_name, " : ", NULL}, fd);
+}
+
 int	print_result(char *title, char *case_name, int res)
 {
-	// const char *result_state[] = {""}
-	(void)title;
+	output_case(title, case_name);
 	if (!res)
-		// ft_putstrs_fd((char *[]){GREEN "[OK]" RESET "      : ", case_name, " \n", NULL}, STDOUT_FILENO);
-		printf(GREEN "[OK]"RESET"      : %s\n", case_name);
+		ft_putendl_fd(GREEN OK RESET, STDOUT_FILENO);
 	else if (res == -1)
 		printf(RED "[KO]" RESET "      : %s\n", case_name);
 	else if (res == SIGSEGV)
