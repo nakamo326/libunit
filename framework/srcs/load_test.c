@@ -1,4 +1,5 @@
 #include "libunit.h"
+#include "ft_list.h"
 
 int	norm_hacker(int flag, int assign)
 {
@@ -31,7 +32,7 @@ void	err_exit(t_clist *lst, t_data *data)
 	char	*s;
 
 	free(data);
-	lst_clear(lst);
+	ft_clst_clear(&lst, free);
 	s = "error\n";
 	write(STDERR_FILENO, s, my_strlen(s));
 	exit(1);
@@ -50,6 +51,6 @@ void	load_test(t_clist **lst, char *case_name, int (*f_case)())
 	data->f_case = f_case;
 	if (!ft_setptr(&new, ft_clstnew(data)))
 		err_exit(*lst, data);
-	ft_clstadd_front(lst, new);
+	ft_clstadd_front(*lst, new);
 	norm_hacker(SET, 1);
 }

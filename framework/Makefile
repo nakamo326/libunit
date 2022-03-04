@@ -4,11 +4,30 @@ SHELL := /bin/bash
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror -MMD -MP
 ARFLAGS := scr
-INCLUDES := -I./includes
+INCLUDES = ./includes $(LIBFTINCLUDE)
+IOPT	= $(addprefix -I , $(INCLUDES))
 
 SRCDIR := srcs
 SRCFILE	=\
 	srcs/launch_tests.c\
+	srcs/list/ft_clst_begin.c\
+	srcs/list/ft_clst_clear.c\
+	srcs/list/ft_clst_insert.c\
+	srcs/list/ft_clst_insert_all.c\
+	srcs/list/ft_clst_isempty.c\
+	srcs/list/ft_clst_isend.c\
+	srcs/list/ft_clst_last.c\
+	srcs/list/ft_clst_link.c\
+	srcs/list/ft_clst_next.c\
+	srcs/list/ft_clst_pop.c\
+	srcs/list/ft_clst_popdel.c\
+	srcs/list/ft_clst_size.c\
+	srcs/list/ft_clstadd_back.c\
+	srcs/list/ft_clstadd_front.c\
+	srcs/list/ft_clstdelone.c\
+	srcs/list/ft_clstfirst.c\
+	srcs/list/ft_clstnew.c\
+	srcs/list/ft_clstnew_add_back.c\
 	srcs/load_test.c\
 	srcs/lst_utils.c\
 	srcs/result.c\
@@ -20,12 +39,22 @@ DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
 
 LIBS := -lft
 
+LIBFTDIR = libft
+LIBFTINCLUDE = $(LIBFTDIR)
+LIBFT = $(LIBFTDIR)/libft.a
+
 # ==== Align length to format compile message ==== #
 ALIGN := $(shell tr ' ' '\n' <<<"$(SRCFILE)" | while read line; do echo \
 	$$((`echo $$line | wc -m`)); done | awk 'm<$$1{ m=$$1} END{print m}')
 
-all: $(NAME)
+all: _libft $(NAME)
+
 -include $(DEPS)
+
+_libft	:
+	$(MAKE) -C $(LIBFTDIR)
+
+$(LIBFT) : _libft
 
 $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $@ $^
@@ -33,7 +62,7 @@ $(NAME): $(OBJS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)/$(*D)
-	@$(CC) $(CFLAGS) -c $< $(INCLUDES) -o $@
+	@$(CC) $(CFLAGS) -c $< $(IOPT) -o $@
 	@echo -e "compile: $(MGN)$<$(NC)\
 	$$(yes ' ' | head -n $$(expr $(ALIGN) - $$((`echo $< | wc -m` - 1))) | tr -d '\n') -> \
 	$(GRN)$@$(NC)"

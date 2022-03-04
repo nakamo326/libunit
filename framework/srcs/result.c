@@ -1,4 +1,5 @@
 #include "libunit.h"
+#include "ft_list.h"
 
 int	case_result(t_clist *lst)
 {

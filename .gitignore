@@ -1,5 +1,6 @@
 *.o
 *.a
+*.d
 a.out
 test.c
 libunit

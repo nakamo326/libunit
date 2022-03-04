@@ -1,4 +1,5 @@
 #include "libunit.h"
+#include "ft_list.h"
 
 int	print_result(char *case_name, int res)
 {
@@ -30,7 +31,7 @@ int	launch_tests(t_clist **lst, char *title)
 	if (!norm_hacker(GET, 0) || !*lst)
 		return (-!!puts("\x1b[31m[KO]      : no test detected\x1b[39m"));
 	res = run_test(*lst, title);
-	lst_clear(*lst);
+	ft_clst_clear(lst, free);
 	norm_hacker(SET, 0);
 	return (res);
 }
