@@ -2,5 +2,11 @@
 
 int	basic_test(void)
 {
-	return (-(ft_strlen("Hello") != strlen("Hello")));
+	char	*s;
+
+	s = "Hello";
+	if (ft_strlen(s) == strlen(s))
+		return (0);
+	else
+		return (-1);
 }

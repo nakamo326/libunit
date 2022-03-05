@@ -1,6 +1,6 @@
 #include "../cases.h"
 
-int	zero_divide(void)
+int	sig_fpe(void)
 {
 	int	i;
 	int	j;
@@ -8,5 +8,5 @@ int	zero_divide(void)
 	i = 0;
 	j = 0;
 	j /= i;
-	return (-1);
+	return (0);
 }

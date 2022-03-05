@@ -5,5 +5,8 @@ int	space4(void)
 	char	*s;
 
 	s = "\t\v\f\r\n \f- \f\t\n\r    06050";
-	return (-(ft_atoi(s) != atoi(s)));
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }

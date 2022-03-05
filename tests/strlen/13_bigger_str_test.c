@@ -11,7 +11,10 @@ int	bigger_str_test(void)
 	tmp = malloc(i + 100);
 	memset(tmp, 'a', i + 100);
 	tmp[i + 99] = 0;
-	ret = -(ft_strlen(tmp) != strlen(tmp));
+	if (ft_strlen(tmp) == strlen(tmp))
+		ret = 0;
+	else
+		ret = -1;
 	free(tmp);
 	return (ret);
 }

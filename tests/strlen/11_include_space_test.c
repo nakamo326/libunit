@@ -1,10 +1,10 @@
 #include "../cases.h"
 
-int	empty_str_test(void)
+int	include_space_test(void)
 {
 	char	*s;
 
-	s = "";
+	s = "aaa\tb\vc\fdd\r\nee ";
 	if (ft_strlen(s) == strlen(s))
 		return (0);
 	else

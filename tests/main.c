@@ -11,5 +11,6 @@ int	main(void)
 	ret = 0;
 	ret |= atoi_launcher();
 	ret |= strlen_launcher();
+	ret |= exception_launcher();
 	return (ret);
 }

@@ -2,5 +2,11 @@
 
 int	error_a(void)
 {
-	return (-(ft_atoi("a") != atoi("a")));
+	char	*s;
+
+	s = "a";
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }

@@ -2,5 +2,11 @@
 
 int	atoi_basic_test(void)
 {
-	return (-(ft_atoi("100\n") != atoi("100\n")));
+	char	*s;
+
+	s = "100\n";
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }
