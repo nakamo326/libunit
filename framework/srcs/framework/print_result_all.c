@@ -7,8 +7,20 @@ static bool	exists_pid(t_clist *found)
 	return (found != NULL);
 }
 
+static void	append_new_result(t_clist *finished, t_proc *result)
+{
+	t_proc	*proc;
+
+	if (result->pid == -1)
+		return ;
+	proc = or_exit(malloc(sizeof(t_proc)));
+	*proc = *result;
+	or_exit(ft_clstnew_add_back(finished, proc));
+}
+
 static void	print_cases_result(t_clist *suite, char *title, size_t max_len)
 {
+	t_proc	result;
 	t_proc	*proc;
 	t_case	*testcase;
 	t_clist	*found;
@@ -29,7 +41,8 @@ static void	print_cases_result(t_clist *suite, char *title, size_t max_len)
 			ft_clst_popdel(found, free);
 			suite = suite->next;
 		}
-		wait_case(finished);
+		result = wait_case();
+		append_new_result(finished, &result);
 	}
 	ft_clst_clear(&finished, free);
 }
