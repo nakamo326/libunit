@@ -1,10 +1,10 @@
 #include "../cases.h"
 
-int	empty_str_test(void)
+int	include_nullchar_test(void)
 {
 	char	*s;
 
-	s = "";
+	s = "aaaa\0bbbb";
 	if (ft_strlen(s) == strlen(s))
 		return (0);
 	else

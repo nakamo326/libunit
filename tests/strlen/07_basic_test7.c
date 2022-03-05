@@ -2,5 +2,11 @@
 
 int	basic_test7(void)
 {
-	return (-(ft_strlen("Basdfqq?????[@@BK") != strlen("Basdfqq?????[@@BK")));
+	char	*s;
+
+	s = "Basdfqq?????[@@BK";
+	if (ft_strlen(s) == strlen(s))
+		return (0);
+	else
+		return (-1);
 }

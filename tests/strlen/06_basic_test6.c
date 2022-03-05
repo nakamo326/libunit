@@ -2,5 +2,11 @@
 
 int	basic_test6(void)
 {
-	return (-(ft_strlen("BB~~+>?K") != strlen("BB~~+>?K")));
+	char	*s;
+
+	s = "BB~~+>?K";
+	if (ft_strlen(s) == strlen(s))
+		return (0);
+	else
+		return (-1);
 }

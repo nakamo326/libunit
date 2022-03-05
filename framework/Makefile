@@ -64,7 +64,9 @@ $(LIBFT) : _libft
 $(NAME): $(OBJS)
 	rm -f $@
 	$(AR) $(ARFLAGS) framework.a $^
-	$(AR) cqT $@ framework.a $(LIBFT)
+	cp framework.a $(NAME)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+#	$(AR) cqT $@ framework.a $(LIBFT)
 #	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c

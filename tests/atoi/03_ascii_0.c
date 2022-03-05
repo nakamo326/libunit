@@ -2,5 +2,11 @@
 
 int	ascii_0(void)
 {
-	return (-(ft_atoi("\0") != atoi("\0")));
+	char	*s;
+
+	s = "\0";
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }

@@ -1,7 +1,6 @@
 #include "../cases.h"
 
-int	double_free(void)
+int		sig_ill(void)
 {
-	abort();
 	return (0);
 }

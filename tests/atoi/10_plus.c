@@ -5,5 +5,8 @@ int	plus(void)
 	char	*s;
 
 	s = "+2147483647";
-	return (-(ft_atoi(s) != atoi(s)));
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }
