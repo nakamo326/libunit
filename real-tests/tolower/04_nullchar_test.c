@@ -2,5 +2,8 @@
 
 int	tolower_null_char(void)
 {
-	return (-(ft_tolower('\0') != tolower('\0')));
+	if (ft_tolower('\0') == tolower('\0'))
+		return (0);
+	else
+		return(-1);
 }

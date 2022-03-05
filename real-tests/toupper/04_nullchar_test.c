@@ -2,5 +2,8 @@
 
 int	toupper_null_char(void)
 {
-	return (-(ft_toupper('\0') != toupper('\0')));
+	if (ft_toupper('\0') == toupper('\0'))
+		return (0);
+	else
+		return(-1);
 }
