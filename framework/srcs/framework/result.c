@@ -30,8 +30,28 @@ void	print_suite_result(int success_num, int total_num)
 	ft_putendl_fd(CYAN BOLD BORDER "\n" B_RESET RESET, STDOUT_FILENO);
 }
 
+size_t	get_max_len_of_case_name(t_clist *suite)
+{
+	size_t	latest_len;
+	size_t	max_len;
+	t_data	*testcase;
+
+	max_len = 0;
+	suite = ft_clstfirst(suite);
+	while (!ft_clst_isend(suite))
+	{
+		testcase = suite->data;
+		latest_len = ft_strlen(testcase->case_name);
+		if (max_len < latest_len)
+			max_len = latest_len;
+		suite = suite->next;
+	}
+	return (max_len);
+}
+
 int	run_test(t_clist *suite, char *title)
 {
+	size_t	max_len;
 	int		res;
 	long	total_cases;
 	long	success_cases;
@@ -39,6 +59,7 @@ int	run_test(t_clist *suite, char *title)
 	t_data	*testcase;
 
 	ft_putstrs_fd((char *[]){BOLD, title," \n\n" B_RESET, NULL}, STDOUT_FILENO);
+	max_len = get_max_len_of_case_name(suite);
 	ko = 0;
 	total_cases = 0;
 	success_cases = 0;
@@ -50,7 +71,7 @@ int	run_test(t_clist *suite, char *title)
 		if(res == 0)
 			success_cases++;
 		testcase = suite->data;
-		ko += print_result(title, testcase->case_name, res);
+		ko += print_result(title, testcase->case_name, res, max_len);
 		suite = suite->next;
 	}
 	print_suite_result(success_cases, total_cases);

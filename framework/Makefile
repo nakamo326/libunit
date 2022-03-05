@@ -14,6 +14,7 @@ SRCFILE	=\
 	srcs/framework/load_test.c\
 	srcs/framework/lst_utils.c\
 	srcs/framework/result.c\
+	srcs/framework/testcount.c\
 	srcs/list/ft_clst_begin.c\
 	srcs/list/ft_clst_clear.c\
 	srcs/list/ft_clst_insert.c\
@@ -57,8 +58,9 @@ _libft	:
 $(LIBFT) : _libft
 
 $(NAME): $(OBJS)
+	rm -f $@;
 	$(AR) $(ARFLAGS) framework.a $^
-	$(AR) -cqT $@ framework.a $(LIBFT)
+	$(AR) cqT $@ framework.a $(LIBFT)
 #	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
