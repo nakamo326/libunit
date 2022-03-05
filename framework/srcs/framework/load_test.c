@@ -2,11 +2,9 @@
 #include "ft_list.h"
 #include "libft.h"
 
-void	init_test(t_clist **lst)
+static void	init_test(t_clist **lst)
 {
-	*lst = ft_clstnew(NULL);
-	if (!*lst)
-		err_exit(*lst, NULL);
+	*lst = or_exit(ft_clstnew(NULL));
 }
 
 void	load_test(t_clist **lst, char *case_name, int (*f_case)())
@@ -17,11 +15,8 @@ void	load_test(t_clist **lst, char *case_name, int (*f_case)())
 		return ;
 	if (!get_testcount())
 		init_test(lst);
-	testcase = malloc(sizeof(t_case));
-	if (!testcase)
-		err_exit(*lst, NULL);
+	testcase = or_exit(malloc(sizeof(t_case)));
 	*testcase = (t_case){.case_name = case_name, .f_case = f_case};
-	if (!ft_clstnew_add_back(*lst, testcase))
-		err_exit(*lst, testcase);
+	or_exit(ft_clstnew_add_back(*lst, testcase));
 	inc_testcount();
 }

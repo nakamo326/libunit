@@ -14,7 +14,7 @@ bonus : _libft _bonus_unit $(NAME)
 
 $(NAME) : $(LIBFT_DIR)/libft.a $(FRAMEWORK_DIR)/libunit.a $(OBJS)
 	$(RM) ../result.txt
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_DIR)/libft.a $(FRAMEWORK_DIR)/libunit.a -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_DIR)/libft.a $(FRAMEWORK_DIR)/libunit.a  -o $(NAME)
 
 _libft:
 	$(MAKE) -C $(LIBFT_DIR)

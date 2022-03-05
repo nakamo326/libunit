@@ -10,3 +10,13 @@ void	err_exit(t_clist *lst, t_case *data)
 	ft_putendl_fd("error", STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }
+
+void	*or_exit(void *allocated)
+{
+	if (!allocated)
+	{
+		ft_putendl_fd("malloc: Not enough memory", STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
+	return (allocated);
+}

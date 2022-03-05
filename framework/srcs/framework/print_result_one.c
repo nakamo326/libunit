@@ -71,9 +71,8 @@ static void	put_test_result(int res)
 		ft_putendl_fd(YELLOW M_UNKNOWN RESET, STDOUT_FILENO);
 }
 
-int	print_result_one(char *title, char *case_name, int res, size_t max_len)
+void	print_result_one(char *title, char *case_name, int res, size_t max_len)
 {
 	output_case(title, case_name, max_len);
 	put_test_result(res);
-	return (-!!res);
 }

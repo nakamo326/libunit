@@ -2,16 +2,19 @@
 #include "ft_list.h"
 #include "libft.h"
 
-void	print_cases_result(t_clist *suite, char *title)
+static bool	exists_pid(t_clist *found)
 {
-	size_t	max_len;
+	return (found != NULL);
+}
+
+static void	print_cases_result(t_clist *suite, char *title, size_t max_len)
+{
 	t_proc	*proc;
 	t_case	*testcase;
 	t_clist	*found;
 	t_clist	*finished;
 
-	max_len = get_max_len_of_case_name(suite);
-	finished = ft_clstnew(NULL);
+	finished = or_exit(ft_clstnew(NULL));
 	suite = ft_clstfirst(suite);
 	while (!ft_clst_isend(suite))
 	{
@@ -31,7 +34,7 @@ void	print_cases_result(t_clist *suite, char *title)
 	ft_clst_clear(&finished, free);
 }
 
-void	print_suite_result(void)
+static void	print_suite_result(void)
 {
 	ft_putstr_fd("\n", STDOUT_FILENO);
 	ft_putnbr_fd(get_success_count(), STDOUT_FILENO);
@@ -43,6 +46,9 @@ void	print_suite_result(void)
 
 void	print_result_all(t_clist *suite, char *title)
 {
-	print_cases_result(suite, title);
+	size_t	max_len;
+
+	max_len = get_max_len_of_case_name(suite);
+	print_cases_result(suite, title, max_len);
 	print_suite_result();
 }

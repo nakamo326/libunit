@@ -62,12 +62,9 @@ _libft	:
 $(LIBFT) : _libft
 
 $(NAME): $(OBJS)
-	rm -f $@
-	$(AR) $(ARFLAGS) framework.a $^
-	cp framework.a $(NAME)
+	cp $(LIBFT) $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
-#	$(AR) cqT $@ framework.a $(LIBFT)
-#	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
+	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)/$(*D)
@@ -81,18 +78,19 @@ add	:
 	bash header.sh $(SRCDIR)/framework $(INCLUDE)/libunit.h
 
 
-debug: CFLAGS += -g -fsanitize=integer -fsanitize=address -DDEBUG
+debug: CFLAGS += -g -fsanitize=address
 debug: re
 
 clean:
-	$(RM) $(OBJS) $(DEPS) $(LIBFT)
+	$(MAKE) clean -C $(LIBFTDIR)
+	$(RM) $(OBJS) $(DEPS)
 	$(RM) -r $(OBJDIR)
 
 fclean: clean
+	$(MAKE) fclean -C $(LIBFTDIR)
 	$(RM) $(NAME)
 
-re: fclean
-	$(MAKE) all
+re: fclean all
 
 .PHONY: all clean fclean re debug srcs
 
