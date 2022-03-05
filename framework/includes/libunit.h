@@ -51,7 +51,6 @@ size_t	get_success_count();
 size_t	get_testcount();
 t_clist	*find_pid_from_finished(pid_t target, t_clist *waited);
 void	err_exit(t_clist *lst, t_case *data);
-void	ft_putstrs_fd(char **strs, int fd);
 void	inc_success_count();
 void	inc_testcount();
 void	init_test(t_clist **lst);

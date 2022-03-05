@@ -83,13 +83,13 @@ void	print_cases_result(t_clist *suite, char *title)
 	ft_clst_clear(&finished, free);
 }
 
-void print_result_all(t_clist *suite, char *title)
+void	print_result_all(t_clist *suite, char *title)
 {
 	print_cases_result(suite, title);
 	print_suite_result();
 }
 
-void	print_suite_result()
+void	print_suite_result(void)
 {
 	ft_putstr_fd("\n", STDOUT_FILENO);
 	ft_putnbr_fd(get_success_count(), STDOUT_FILENO);
@@ -118,9 +118,9 @@ size_t	get_max_len_of_case_name(t_clist *suite)
 	return (max_len);
 }
 
-void run_suite(t_clist *suite, char *title)
+void	run_suite(t_clist *suite, char *title)
 {
-	ft_putstrs_fd((char *[]){BOLD, title," \n\n" B_RESET, NULL}, STDOUT_FILENO);
+	ft_putstrs_fd((char *[]){BOLD, title, " \n\n" B_RESET, NULL}, STDOUT_FILENO);
 	suite = ft_clstfirst(suite);
 	while (!ft_clst_isend(suite))
 	{

@@ -60,14 +60,14 @@ _libft	:
 $(LIBFT) : _libft
 
 $(NAME): $(OBJS)
-	rm -f $@;
+	rm -f $@
 	$(AR) $(ARFLAGS) framework.a $^
 	$(AR) cqT $@ framework.a $(LIBFT)
 #	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)/$(*D)
-	$(CC) $(CFLAGS) -c $< $(IOPT) -o $@
+	@$(CC) $(CFLAGS) -c $< $(IOPT) -o $@
 	@echo -e "compile: $(MGN)$<$(NC)\
 	$$(yes ' ' | head -n $$(expr $(ALIGN) - $$((`echo $< | wc -m` - 1))) | tr -d '\n') -> \
 	$(GRN)$@$(NC)"
@@ -81,7 +81,7 @@ debug: CFLAGS += -g -fsanitize=integer -fsanitize=address -DDEBUG
 debug: re
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJS) $(DEPS) $(LIBFT)
 	$(RM) -r $(OBJDIR)
 
 fclean: clean

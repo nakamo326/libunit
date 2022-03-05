@@ -44,7 +44,7 @@ static void	put_case_name_fd(char *case_name, size_t max_len, int fd)
 
 static void	output_case(char *title, char *case_name, size_t max_len)
 {
-	const int 		fd = STDOUT_FILENO;
+	const int	fd = STDOUT_FILENO;
 
 	ft_putstrs_fd((char *[]){title, " : ", NULL}, fd);
 	put_case_name_fd(case_name, max_len, fd);
@@ -75,14 +75,5 @@ int	print_result_one(char *title, char *case_name, int res, size_t max_len)
 {
 	output_case(title, case_name, max_len);
 	put_test_result(res);
-	return (-!!res); // signal == -1 , exit = 0 , ko = -1
-}
-
-void	ft_putstrs_fd(char **strs, int fd)
-{
-	while (*strs)
-	{
-		ft_putstr_fd(*strs, fd);
-		strs++;
-	}
+	return (-!!res);
 }
