@@ -4,8 +4,6 @@
 
 #define NO_TEST "[KO]      : no test detected"
 
-static size_t	g_testcount;
-
 int	norm_hacker(int flag, int assign)
 {
 	static int	g;
@@ -36,7 +34,7 @@ void	load_test(t_clist **lst, char *case_name, int (*f_case)())
 
 	if (!lst || !case_name || !f_case)
 		return ;
-	if (!g_testcount)
+	if (!get_testcount())
 	{
 		*lst = ft_clstnew(NULL);
 		if (!*lst)
@@ -48,7 +46,7 @@ void	load_test(t_clist **lst, char *case_name, int (*f_case)())
 	*data = (t_data){.case_name = case_name, .f_case = f_case};
 	if (!ft_clstnew_add_back(*lst, data))
 		err_exit(*lst, data);
-	g_testcount++;
+	inc_testcount();
 }
 
 int	launch_tests(t_clist **lst, char *title)
@@ -65,6 +63,6 @@ int	launch_tests(t_clist **lst, char *title)
 	}
 	res = run_test(*lst, title);
 	ft_clst_clear(lst, free);
-	g_testcount = 0;
+	reset_testcount();
 	return (res);
 }

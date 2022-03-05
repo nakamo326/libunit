@@ -2,7 +2,7 @@
 
 static size_t	g_testcount;
 
-size_t	set_testcount(size_t value)
+void	set_testcount(size_t value)
 {
 	g_testcount = value;
 }
