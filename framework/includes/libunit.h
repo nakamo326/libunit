@@ -35,11 +35,13 @@ int		case_result(t_clist *lst);
 int		ft_setptr(void *dest, void *p);
 int		launch_tests(t_clist **lst, char *title);
 int		norm_hacker(int flag, int assign);
-int		print_result(char *title, char *case_name, int res);
+int		print_result(char *title, char *case_name, int res, size_t max_len);
 int		run_test(t_clist *suite, char *title);
+size_t	get_max_len_of_case_name(t_clist *suite);
 void	err_exit(t_clist *lst, t_data *data);
 void	ft_putstrs_fd(char **strs, int fd);
 void	load_test(t_clist **lst, char *case_name, int (*f_case)());
 void	print_suite_result(int success_num, int total_num);
+void	output_case(char *title, char *case_name, size_t max_len);
 
 #endif
