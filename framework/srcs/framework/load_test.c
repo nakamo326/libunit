@@ -58,7 +58,7 @@ int	launch_tests(t_clist **lst, char *title)
 
 	if (!lst)
 		err_exit(NULL, NULL);
-	if (!g_testcount || !*lst)// || ft_clst_isend(*lst)) //dame
+	if (!get_testcount() || !*lst)// || ft_clst_isend(*lst)) //dame
 	{
 		ft_putstrs_fd((char *[]){RED "[", title, NO_TEST RESET, NULL}, fd);
 		return (-1);

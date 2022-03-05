@@ -14,6 +14,7 @@ SRCFILE	=\
 	srcs/framework/load_test.c\
 	srcs/framework/lst_utils.c\
 	srcs/framework/result.c\
+	srcs/framework/testcount.c\
 	srcs/list/ft_clst_begin.c\
 	srcs/list/ft_clst_clear.c\
 	srcs/list/ft_clst_insert.c\
