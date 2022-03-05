@@ -25,8 +25,15 @@
 # define B_RESET   "\x1b[0m"
 # define BORDER "*********************************"
 typedef struct s_clist	t_clist;
+typedef struct s_clist	t_suite;
+typedef struct s_test
+{
+	char	*title;
+	t_suite	*suite;
+}	t_test;
 typedef struct s_data
 {
+	int		pid;
 	char	*case_name;
 	int		(*f_case)();
 }	t_data;
@@ -42,6 +49,5 @@ void	err_exit(t_clist *lst, t_data *data);
 void	ft_putstrs_fd(char **strs, int fd);
 void	load_test(t_clist **lst, char *case_name, int (*f_case)());
 void	print_suite_result(int success_num, int total_num);
-void	output_case(char *title, char *case_name, size_t max_len);
 
 #endif
