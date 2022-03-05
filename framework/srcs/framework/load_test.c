@@ -2,7 +2,7 @@
 #include "ft_list.h"
 #include "libft.h"
 
-void	init_test(t_clist **lst)
+static void	init_test(t_clist **lst)
 {
 	*lst = ft_clstnew(NULL);
 	if (!*lst)

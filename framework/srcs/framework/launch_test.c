@@ -4,7 +4,7 @@
 
 #define NO_TEST "[KO]      : no test detected"
 
-int	get_result(void)
+static int	get_result(void)
 {
 	if (get_testcount() == get_success_count())
 		return (0);

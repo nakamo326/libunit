@@ -2,6 +2,11 @@
 #include "ft_list.h"
 #include "libft.h"
 
+static bool	exists_pid(t_clist *found)
+{
+	return (found != NULL);
+}
+
 void	print_cases_result(t_clist *suite, char *title)
 {
 	size_t	max_len;
