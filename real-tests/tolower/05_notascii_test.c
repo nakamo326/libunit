@@ -2,5 +2,8 @@
 
 int	tolower_not_ascii(void)
 {
-	return (-(ft_tolower(555) != tolower(555)));
+	if (ft_tolower(555) == tolower(555))
+		return (0);
+	else
+		return(-1);
 }

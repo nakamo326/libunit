@@ -2,14 +2,14 @@
 
 int	strncmp_empty_string_test(void)
 {
-	size_t	len;
-	int		act;
-	int		expected;
-	size_t	bitlen;
+	int libret;
+	int ftret;
 
-	bitlen = sizeof(int) * CHAR_BIT - 1;
-	len = 1;
-	act = ft_strncmp("", "", len);
-	expected = strncmp("", "", len);
-	return (-((act ^ expected) >> bitlen || (--act ^ --expected) >> bitlen));
+	libret = strncmp("", "", 1);
+	ftret = ft_strncmp("", "", 1);
+	if ((libret != 0 && ftret != 0)
+		|| (libret == 0 && ftret == 0))
+		return (0);
+	else
+		return(-1);
 }
