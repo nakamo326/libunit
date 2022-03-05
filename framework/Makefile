@@ -62,7 +62,6 @@ _libft	:
 $(LIBFT) : _libft
 
 $(NAME): $(OBJS)
-	rm -f $@
 	cp $(LIBFT) $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
