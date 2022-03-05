@@ -57,6 +57,7 @@ _libft	:
 $(LIBFT) : _libft
 
 $(NAME): $(OBJS)
+	rm -f $@;
 	$(AR) $(ARFLAGS) framework.a $^
 	$(AR) cqT $@ framework.a $(LIBFT)
 #	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
