@@ -10,11 +10,11 @@ int	main(void)
 	printf("*********************************\x1b[0m\n\n"RESET);
 	ret = 0;
 	ret |= atoi_launcher();
-	ret |= strlcat_launcher();
-	ret |= toupper_launcher();
 	ret |= isprint_launcher();
-	ret |= tolower_launcher();
 	ret |= isalnum_launcher();
 	ret |= strlen_launcher();
+	ret |= strlcat_launcher();
+	ret |= tolower_launcher();
+	ret |= toupper_launcher();
 	return (ret);
 }

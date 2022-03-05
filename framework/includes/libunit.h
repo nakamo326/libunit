@@ -26,32 +26,45 @@
 # define BORDER "*********************************"
 typedef struct s_clist	t_clist;
 typedef struct s_clist	t_suite;
+typedef struct s_proc
+{
+	pid_t	pid;
+	int		res;
+}	t_proc;
 typedef struct s_test
 {
 	char	*title;
 	t_suite	*suite;
 }	t_test;
-typedef struct s_data
+typedef struct s_case
 {
 	int		pid;
 	char	*case_name;
 	int		(*f_case)();
-}	t_data;
+}	t_case;
 
-int		case_result(t_clist *lst);
-int		ft_setptr(void *dest, void *p);
+int		get_result();
 int		launch_tests(t_clist **lst, char *title);
-int		norm_hacker(int flag, int assign);
-int		print_result(char *title, char *case_name, int res, size_t max_len);
-int		run_test(t_clist *suite, char *title);
+int		print_result_one(char *title, char *case_name, int res, size_t max_len);
 size_t	get_max_len_of_case_name(t_clist *suite);
+size_t	get_success_count();
 size_t	get_testcount();
-void	err_exit(t_clist *lst, t_data *data);
+t_clist	*find_pid_from_finished(pid_t target, t_clist *waited);
+void	err_exit(t_clist *lst, t_case *data);
 void	ft_putstrs_fd(char **strs, int fd);
+void	inc_success_count();
 void	inc_testcount();
+void	init_test(t_clist **lst);
 void	load_test(t_clist **lst, char *case_name, int (*f_case)());
-void	print_suite_result(int success_num, int total_num);
+void	print_cases_result(t_clist *suite, char *title);
+void	print_suite_result();
+void	reset_success_count();
 void	reset_testcount();
+void	run_test(t_clist *lst);
+void	set_success_count(size_t value);
 void	set_testcount(size_t value);
+void	wait_case(t_clist *pidlst);
+void	print_result_all(t_clist *suite, char *title);
+void	run_suite(t_clist *suite, char *title);
 
 #endif

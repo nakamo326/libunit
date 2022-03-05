@@ -46,7 +46,7 @@ static void	output_case(char *title, char *case_name, size_t max_len)
 {
 	const int 		fd = STDOUT_FILENO;
 
-	ft_putstrs_fd((char *[]){title, " : "}, fd);
+	ft_putstrs_fd((char *[]){title, " : ", NULL}, fd);
 	put_case_name_fd(case_name, max_len, fd);
 	ft_putstr_fd(": ", fd);
 }
@@ -71,7 +71,7 @@ static void	put_test_result(int res)
 		ft_putendl_fd(YELLOW M_UNKNOWN RESET, STDOUT_FILENO);
 }
 
-int	print_result(char *title, char *case_name, int res, size_t max_len)
+int	print_result_one(char *title, char *case_name, int res, size_t max_len)
 {
 	output_case(title, case_name, max_len);
 	put_test_result(res);

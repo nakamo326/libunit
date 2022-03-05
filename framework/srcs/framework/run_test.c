@@ -2,30 +2,117 @@
 #include "ft_list.h"
 #include "libft.h"
 
-int	case_result(t_clist *lst)
+// int	case_result(t_clist *lst)
+// {
+// 	t_case	*testcase;
+// 	int		status;
+
+// 	testcase->pid = fork();
+// 	if (testcase->pid < 0)
+// 		err_exit(lst, NULL);
+// 	else if (testcase->pid == 0)
+// 		exit(testcase->f_case());
+// 	wait(&status);
+// 	if (WIFEXITED(status))
+// 		return (-!!WEXITSTATUS(status));
+// 	else if (WIFSIGNALED(status))
+// 		return (WTERMSIG(status));
+// 	return (UNKNOWN);
+// }
+
+void	run_test(t_clist *lst)
+{
+	t_case	*testcase;
+
+	testcase = lst->data;
+	testcase->pid = fork();
+	if (testcase->pid < 0)
+		err_exit(lst, NULL);
+	else if (testcase->pid == 0)
+		exit(testcase->f_case());
+}
+
+void	wait_case(t_clist *pidlst)
 {
 	pid_t	pid;
 	int		status;
+	t_proc	*proc;
 
-	pid = fork();
-	if (pid < 0)
-		err_exit(lst, NULL);
-	else if (pid == 0)
-		exit(((t_data *)lst->data)->f_case());
-	wait(&status);
+	pid = wait(&status);
+	if (pid == -1)
+		return ;
+	proc = malloc(sizeof(t_proc));
+	proc->pid = pid;
 	if (WIFEXITED(status))
-		return (-!!WEXITSTATUS(status));
+		proc->res = -!!WEXITSTATUS(status);
 	else if (WIFSIGNALED(status))
-		return (WTERMSIG(status));
-	return (UNKNOWN);
+		proc->res = WTERMSIG(status);
+	else
+		proc->res = UNKNOWN;
+	ft_clstnew_add_back(pidlst, proc);
 }
 
-void	print_suite_result(int success_num, int total_num)
+t_clist	*find_pid_from_finished(pid_t target, t_clist *waited)
+{
+	t_proc	*proc;
+
+	waited = ft_clstfirst(waited);
+	while (!ft_clst_isend(waited))
+	{
+		proc = waited->data;
+		if (proc->pid == target)
+			return (waited);
+		waited = waited->next;
+	}
+	return (NULL);
+}
+
+bool	exists_pid(t_clist *found)
+{
+	return (found != NULL);
+}
+
+void	print_cases_result(t_clist *suite, char *title)
+{
+	size_t	max_len;
+	t_proc	*proc;
+	t_case	*testcase;
+	t_clist	*found;
+	t_clist	*finished;
+
+	max_len = get_max_len_of_case_name(suite);
+	finished = ft_clstnew(NULL);
+	suite = ft_clstfirst(suite);
+	while (!ft_clst_isend(suite))
+	{
+		testcase = suite->data;
+		found = find_pid_from_finished(testcase->pid, finished);
+		if (exists_pid(found))
+		{
+			proc = found->data;
+			print_result_one(title, testcase->case_name, proc->res, max_len);
+			if (proc->res == 0)
+				inc_success_count();
+			ft_clst_popdel(found, free);
+			suite = suite->next;
+		}
+		wait_case(finished);
+	}
+	ft_clst_clear(&finished, free);
+}
+
+void print_result_all(t_clist *suite, char *title)
+{
+	print_cases_result(suite, title);
+	print_suite_result();
+}
+
+void	print_suite_result()
 {
 	ft_putstr_fd("\n", STDOUT_FILENO);
-	ft_putnbr_fd(success_num, STDOUT_FILENO);
+	ft_putnbr_fd(get_success_count(), STDOUT_FILENO);
 	ft_putstr_fd("/", STDOUT_FILENO);
-	ft_putnbr_fd(total_num, STDOUT_FILENO);
+	ft_putnbr_fd(get_testcount(), STDOUT_FILENO);
 	ft_putendl_fd(" tests passed\n", STDOUT_FILENO);
 	ft_putendl_fd(CYAN BOLD BORDER "\n" B_RESET RESET, STDOUT_FILENO);
 }
@@ -34,7 +121,7 @@ size_t	get_max_len_of_case_name(t_clist *suite)
 {
 	size_t	latest_len;
 	size_t	max_len;
-	t_data	*testcase;
+	t_case	*testcase;
 
 	max_len = 0;
 	suite = ft_clstfirst(suite);
@@ -49,31 +136,42 @@ size_t	get_max_len_of_case_name(t_clist *suite)
 	return (max_len);
 }
 
-int	run_test(t_clist *suite, char *title)
+void run_suite(t_clist *suite, char *title)
 {
-	size_t	max_len;
-	int		res;
-	long	total_cases;
-	long	success_cases;
-	long	ko;
-	t_data	*testcase;
-
 	ft_putstrs_fd((char *[]){BOLD, title," \n\n" B_RESET, NULL}, STDOUT_FILENO);
-	max_len = get_max_len_of_case_name(suite);
-	ko = 0;
-	total_cases = 0;
-	success_cases = 0;
 	suite = ft_clstfirst(suite);
 	while (!ft_clst_isend(suite))
 	{
-		total_cases++;
-		res = case_result(suite);
-		if(res == 0)
-			success_cases++;
-		testcase = suite->data;
-		ko += print_result(title, testcase->case_name, res, max_len);
+		run_test(suite);
 		suite = suite->next;
 	}
-	print_suite_result(success_cases, total_cases);
-	return (-!!ko);
 }
+
+// int	run_suite(t_clist *suite, char *title)
+// {
+// 	size_t	max_len;
+// 	int		res;
+// 	long	total_cases;
+// 	long	success_cases;
+// 	long	ko;
+// 	t_case	*testcase;
+
+// 	ft_putstrs_fd((char *[]){BOLD, title," \n\n" B_RESET, NULL}, STDOUT_FILENO);
+// 	max_len = get_max_len_of_case_name(suite);
+// 	ko = 0;
+// 	total_cases = 0;
+// 	success_cases = 0;
+// 	suite = ft_clstfirst(suite);
+// 	while (!ft_clst_isend(suite))
+// 	{
+// 		total_cases++;
+// 		run_test(suite);
+// 		if(res == 0)
+// 			success_cases++;
+// 		testcase = suite->data;
+// 		ko += print_result(title, testcase->case_name, res, max_len);
+// 		suite = suite->next;
+// 	}
+// 	print_suite_result(success_cases, total_cases);
+// 	return (-!!ko);
+// }
