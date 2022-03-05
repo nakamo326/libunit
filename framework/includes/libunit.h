@@ -54,6 +54,7 @@ void	err_exit(t_clist *lst, t_case *data);
 void	inc_success_count(void);
 void	inc_testcount(void);
 void	load_test(t_clist **lst, char *case_name, int (*f_case)());
+void	print_header(void);
 void	print_result_all(t_clist *suite, char *title);
 void	print_result_one(char *title, char *case_name, int res, size_t max_len);
 void	reset_success_count(void);

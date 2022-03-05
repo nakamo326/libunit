@@ -13,6 +13,7 @@ SRCFILE	=\
 	srcs/framework/error.c\
 	srcs/framework/launch_test.c\
 	srcs/framework/load_test.c\
+	srcs/framework/print_header.c\
 	srcs/framework/print_result_all.c\
 	srcs/framework/print_result_one.c\
 	srcs/framework/run_test.c\
