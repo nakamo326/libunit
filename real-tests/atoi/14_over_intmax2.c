@@ -2,8 +2,10 @@
 
 int	over_intmax2(void)
 {
-	char	*s;
+	const char	*s = "4294969344";
 
-	s = "4294969344";
-	return (-(ft_atoi(s) != atoi(s)));
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }

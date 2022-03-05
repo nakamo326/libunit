@@ -2,8 +2,10 @@
 
 int	intmin(void)
 {
-	char	*s;
+	const char	*s = "-2147483648";
 
-	s = "-2147483648";
-	return (-(ft_atoi(s) != atoi(s)));
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }

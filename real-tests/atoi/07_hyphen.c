@@ -2,8 +2,10 @@
 
 int	hyphen(void)
 {
-	char	*s;
+	const char	*s = "-";
 
-	s = "-";
-	return (-(ft_atoi(s) != atoi(s)));
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }

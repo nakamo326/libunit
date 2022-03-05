@@ -2,5 +2,10 @@
 
 int	alnum_basic_test4(void)
 {
-	return (-(ft_isalnum(300) != isalnum(300)));
+	const int	c = 300;
+
+	if (!!ft_isalnum(c) == !!isalnum(c))
+		return (0);
+	else
+		return (-1);
 }

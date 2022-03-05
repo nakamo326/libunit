@@ -2,8 +2,10 @@
 
 int	space3(void)
 {
-	char	*s;
+	const char	*s = "3456  ";
 
-	s = "3456  ";
-	return (-(ft_atoi(s) != atoi(s)));
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }

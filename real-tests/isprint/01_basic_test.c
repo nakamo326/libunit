@@ -4,8 +4,8 @@ int	isprint_basic_test(void)
 {
 	int	c;
 
-	c = 'a';
-	while (c <= 'z')
+	c = 'A';
+	while (c <= 'Z')
 	{
 		if (!!ft_isprint(c) != !!isprint(c))
 			return (-1);
