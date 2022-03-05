@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 16:49:44 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/04/21 13:40:53 by ynakamot         ###   ########.fr       */
+/*   Updated: 2022/03/05 17:30:26 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ char		**ft_extend_split(char **list, size_t index);
 char		**ft_addstr_split(char **list, const char *str);
 char		*ft_str_sandwich(char *filling, char *bread);
 void		ft_free(void	**ptr);
+void		ft_putstrs_fd(char **strs, int fd);
 
 #endif

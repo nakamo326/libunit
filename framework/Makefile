@@ -13,10 +13,12 @@ SRCFILE	=\
 	srcs/framework/error.c\
 	srcs/framework/launch_test.c\
 	srcs/framework/load_test.c\
-	srcs/framework/print_result.c\
+	srcs/framework/print_result_all.c\
+	srcs/framework/print_result_one.c\
 	srcs/framework/run_test.c\
 	srcs/framework/success_count.c\
 	srcs/framework/testcount.c\
+	srcs/framework/wait_proc.c\
 	srcs/list/ft_clst_begin.c\
 	srcs/list/ft_clst_clear.c\
 	srcs/list/ft_clst_insert.c\
@@ -60,14 +62,14 @@ _libft	:
 $(LIBFT) : _libft
 
 $(NAME): $(OBJS)
-	rm -f $@;
+	rm -f $@
 	$(AR) $(ARFLAGS) framework.a $^
 	$(AR) cqT $@ framework.a $(LIBFT)
 #	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)/$(*D)
-	$(CC) $(CFLAGS) -c $< $(IOPT) -o $@
+	@$(CC) $(CFLAGS) -c $< $(IOPT) -o $@
 	@echo -e "compile: $(MGN)$<$(NC)\
 	$$(yes ' ' | head -n $$(expr $(ALIGN) - $$((`echo $< | wc -m` - 1))) | tr -d '\n') -> \
 	$(GRN)$@$(NC)"
@@ -81,7 +83,7 @@ debug: CFLAGS += -g -fsanitize=integer -fsanitize=address -DDEBUG
 debug: re
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJS) $(DEPS) $(LIBFT)
 	$(RM) -r $(OBJDIR)
 
 fclean: clean

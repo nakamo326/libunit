@@ -1,9 +1,10 @@
 #include "libunit.h"
 #include "ft_list.h"
+#include "libft.h"
 
 #define NO_TEST "[KO]      : no test detected"
 
-int	get_result()
+int	get_result(void)
 {
 	if (get_testcount() == get_success_count())
 		return (0);
