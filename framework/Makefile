@@ -2,7 +2,7 @@ NAME := libunit.a
 
 SHELL := /bin/bash
 CC := gcc
-CFLAGS := -Wall -Wextra -Werror -MMD -MP
+CFLAGS := -Wall -Wextra -Werror -MMD -MP #-g -fsanitize=address
 ARFLAGS := scr
 INCLUDE = ./includes
 INCLUDES =  $(INCLUDE) $(LIBFTINCLUDE)
@@ -10,10 +10,12 @@ IOPT	= $(addprefix -I , $(INCLUDES))
 
 SRCDIR := srcs
 SRCFILE	=\
-	srcs/framework/launch_tests.c\
+	srcs/framework/error.c\
+	srcs/framework/launch_test.c\
 	srcs/framework/load_test.c\
-	srcs/framework/lst_utils.c\
-	srcs/framework/result.c\
+	srcs/framework/print_result.c\
+	srcs/framework/run_test.c\
+	srcs/framework/success_count.c\
 	srcs/framework/testcount.c\
 	srcs/list/ft_clst_begin.c\
 	srcs/list/ft_clst_clear.c\

@@ -43,7 +43,7 @@ int	case_result(t_clist *lst)
 	else if (pid == 0)
 	{
 		alarm(5);
-		exit(((t_data *)lst->data)->f_case());
+		exit(((t_case *)lst->data)->f_case());
 	}
 	wait(&status);
 	if (WIFEXITED(status))
@@ -68,9 +68,9 @@ int	run_tester(t_clist *lst, int fd)
 		cases++;
 		lst = lst->prev;
 		res = case_result(lst);
-		ko += print_result(((t_data *)lst->data)->case_name, res);
+		ko += print_result_one(((t_case *)lst->data)->case_name, res);
 		if (res && fd > 0)
-			file_out(((t_data *)lst->data)->case_name, res, fd);
+			file_out(((t_case *)lst->data)->case_name, res, fd);
 		if (lst == start)
 			break ;
 	}
