@@ -11,9 +11,9 @@
 #define M_TIMEOUT "[TIMEOUT]"
 #define M_UNKNOWN "[UNKNOWN]"
 
-// [test_function]:[test_name]:[status]
-
 #define PADDING_MAX 100
+
+// [test_function]:[test_name]:[status]
 
 void	put_padding_fd(size_t size, int fd)
 {
@@ -51,9 +51,8 @@ void	output_case(char *title, char *case_name, size_t max_len)
 	ft_putstr_fd(": ", fd);
 }
 
-int	print_result(char *title, char *case_name, int res, size_t max_len)
+void	put_test_result(int res)
 {
-	output_case(title, case_name, max_len);
 	if (!res)
 		ft_putendl_fd(GREEN OK RESET, STDOUT_FILENO);
 	else if (res == -1)
@@ -70,6 +69,12 @@ int	print_result(char *title, char *case_name, int res, size_t max_len)
 		ft_putendl_fd(YELLOW M_TIMEOUT RESET, STDOUT_FILENO);
 	else
 		ft_putendl_fd(YELLOW M_UNKNOWN RESET, STDOUT_FILENO);
+}
+
+int	print_result(char *title, char *case_name, int res, size_t max_len)
+{
+	output_case(title, case_name, max_len);
+	put_test_result(res);
 	return (-!!res); // signal == -1 , exit = 0 , ko = -1
 }
 
