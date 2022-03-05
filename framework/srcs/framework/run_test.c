@@ -2,24 +2,6 @@
 #include "ft_list.h"
 #include "libft.h"
 
-// int	case_result(t_clist *lst)
-// {
-// 	t_case	*testcase;
-// 	int		status;
-
-// 	testcase->pid = fork();
-// 	if (testcase->pid < 0)
-// 		err_exit(lst, NULL);
-// 	else if (testcase->pid == 0)
-// 		exit(testcase->f_case());
-// 	wait(&status);
-// 	if (WIFEXITED(status))
-// 		return (-!!WEXITSTATUS(status));
-// 	else if (WIFSIGNALED(status))
-// 		return (WTERMSIG(status));
-// 	return (UNKNOWN);
-// }
-
 void	run_test(t_clist *lst)
 {
 	t_case	*testcase;
@@ -146,32 +128,3 @@ void run_suite(t_clist *suite, char *title)
 		suite = suite->next;
 	}
 }
-
-// int	run_suite(t_clist *suite, char *title)
-// {
-// 	size_t	max_len;
-// 	int		res;
-// 	long	total_cases;
-// 	long	success_cases;
-// 	long	ko;
-// 	t_case	*testcase;
-
-// 	ft_putstrs_fd((char *[]){BOLD, title," \n\n" B_RESET, NULL}, STDOUT_FILENO);
-// 	max_len = get_max_len_of_case_name(suite);
-// 	ko = 0;
-// 	total_cases = 0;
-// 	success_cases = 0;
-// 	suite = ft_clstfirst(suite);
-// 	while (!ft_clst_isend(suite))
-// 	{
-// 		total_cases++;
-// 		run_test(suite);
-// 		if(res == 0)
-// 			success_cases++;
-// 		testcase = suite->data;
-// 		ko += print_result(title, testcase->case_name, res, max_len);
-// 		suite = suite->next;
-// 	}
-// 	print_suite_result(success_cases, total_cases);
-// 	return (-!!ko);
-// }
