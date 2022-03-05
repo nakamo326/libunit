@@ -64,5 +64,6 @@ void	reset_testcount(void);
 void	run_suite(t_clist *suite, char *title);
 void	set_success_count(size_t value);
 void	set_testcount(size_t value);
+void	put_status( char *signal, char *color);
 
 #endif

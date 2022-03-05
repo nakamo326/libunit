@@ -8,8 +8,11 @@
 #define M_SIGABRT "[SIGABRT]"
 #define M_SIGBUS "[SIGBUS]"
 #define M_SIGFPE "[SIGFPE]"
+#define M_SIGILL "[SIGILL]"
+#define M_SIGPIPE "[SIGPIPE]"
 #define M_TIMEOUT "[TIMEOUT]"
 #define M_UNKNOWN "[UNKNOWN]"
+
 
 #define PADDING_MAX 100
 
@@ -54,21 +57,25 @@ static void	output_case(char *title, char *case_name, size_t max_len)
 static void	put_test_result(int res)
 {
 	if (!res)
-		ft_putendl_fd(GREEN OK RESET, STDOUT_FILENO);
+		put_status(OK, GREEN);
 	else if (res == -1)
-		ft_putendl_fd(RED KO RESET, STDOUT_FILENO);
+		put_status(KO, RED);
 	else if (res == SIGSEGV)
-		ft_putendl_fd(YELLOW M_SIGSEGV RESET, STDOUT_FILENO);
+		put_status(M_SIGSEGV, YELLOW);
 	else if (res == SIGABRT)
-		ft_putendl_fd(YELLOW M_SIGABRT RESET, STDOUT_FILENO);
+		put_status(M_SIGABRT, YELLOW);
 	else if (res == SIGBUS)
-		ft_putendl_fd(YELLOW M_SIGBUS RESET, STDOUT_FILENO);
+		put_status(M_SIGBUS, YELLOW);
 	else if (res == SIGFPE)
-		ft_putendl_fd(YELLOW M_SIGFPE RESET, STDOUT_FILENO);
+		put_status(M_SIGFPE, YELLOW);
 	else if (res == SIGALRM)
-		ft_putendl_fd(YELLOW M_TIMEOUT RESET, STDOUT_FILENO);
+		put_status(M_TIMEOUT, YELLOW);
+	else if (res == SIGPIPE)
+		put_status(M_SIGPIPE, YELLOW);
+	else if (res == SIGILL)
+		put_status(M_SIGILL, YELLOW);
 	else
-		ft_putendl_fd(YELLOW M_UNKNOWN RESET, STDOUT_FILENO);
+		put_status(M_UNKNOWN, YELLOW);
 }
 
 void	print_result_one(char *title, char *case_name, int res, size_t max_len)

@@ -16,6 +16,7 @@ SRCFILE	=\
 	srcs/framework/print_header.c\
 	srcs/framework/print_result_all.c\
 	srcs/framework/print_result_one.c\
+	srcs/framework/put_status.c\
 	srcs/framework/run_test.c\
 	srcs/framework/success_count.c\
 	srcs/framework/testcount.c\
