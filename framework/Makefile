@@ -63,11 +63,9 @@ $(LIBFT) : _libft
 
 $(NAME): $(OBJS)
 	rm -f $@
-	$(AR) $(ARFLAGS) framework.a $^
-	cp framework.a $(NAME)
+	cp $(LIBFT) $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
-#	$(AR) cqT $@ framework.a $(LIBFT)
-#	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
+	@echo -e "flags  : $(YLW)$(ARFLAGS)$(NC)\nbuild  : $(GRN)$^$(NC)\n=> $(BLU)$@$(NC)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)/$(*D)
@@ -85,10 +83,12 @@ debug: CFLAGS += -g -fsanitize=integer -fsanitize=address -DDEBUG
 debug: re
 
 clean:
-	$(RM) $(OBJS) $(DEPS) $(LIBFT)
+	$(MAKE) clean -C $(LIBFTDIR)
+	$(RM) $(OBJS) $(DEPS)
 	$(RM) -r $(OBJDIR)
 
 fclean: clean
+	$(MAKE) fclean -C $(LIBFTDIR)
 	$(RM) $(NAME)
 
 re: fclean
