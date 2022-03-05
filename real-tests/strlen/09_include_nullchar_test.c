@@ -2,5 +2,10 @@
 
 int	include_nullchar_test(void)
 {
-	return (-(ft_strlen("aaaa\0bbbb") != strlen("aaaa\0bbbb")));
+	const char	*s = "aaaa\0bbbb";
+
+	if (ft_strlen(s) == strlen(s))
+		return (0);
+	else
+		return (-1);
 }
