@@ -5,9 +5,7 @@ int	main(void)
 {
 	int	ret;
 
-	printf("\n"CYAN"\x1b[1m*********************************\n");
-	printf("*****    42 - Unit Tests    *****\n");
-	printf("*********************************\x1b[0m\n\n"RESET);
+	print_header();
 	ret = 0;
 	ret |= atoi_launcher();
 	ret |= isprint_launcher();
