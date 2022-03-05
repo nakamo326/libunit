@@ -2,7 +2,13 @@
 
 int	strncmp_zerolen_test(void)
 {
-	if (ft_strncmp("bbbbb", "aaaaa", 0) == strncmp("bbbbb", "aaaaa", 0))
+	int libret;
+	int ftret;
+
+	libret = strncmp("bbbbb", "aaaaa", 0);
+	ftret = ft_strncmp("bbbbb", "aaaaa", 0);
+	if ((libret != 0 && ftret != 0)
+		|| (libret == 0 && ftret == 0))
 		return (0);
 	else
 		return(-1);

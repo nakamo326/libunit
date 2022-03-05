@@ -2,7 +2,13 @@
 
 int	strncmp_empty_string_test(void)
 {
-	if (ft_strncmp("", "", 1) == strncmp("", "", 1))
+	int libret;
+	int ftret;
+
+	libret = strncmp("", "", 1);
+	ftret = ft_strncmp("", "", 1);
+	if ((libret != 0 && ftret != 0)
+		|| (libret == 0 && ftret == 0))
 		return (0);
 	else
 		return(-1);
