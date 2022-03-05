@@ -2,8 +2,10 @@
 
 int	basic_test8(void)
 {
-	char	*s;
+	const char	*s = "B-^{```{]adsf:l];BK";
 
-	s = "B-^{```{]adsf:l];BK";
-	return (-(ft_strlen(s) != strlen(s)));
+	if (ft_strlen(s) == strlen(s))
+		return (0);
+	else
+		return (-1);
 }

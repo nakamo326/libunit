@@ -2,5 +2,10 @@
 
 int	empty_str_test(void)
 {
-	return (-(ft_strlen("") != strlen("")));
+	const char	*s = "";
+
+	if (ft_strlen(s) == strlen(s))
+		return (0);
+	else
+		return (-1);
 }

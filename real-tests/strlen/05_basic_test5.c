@@ -2,5 +2,10 @@
 
 int	basic_test5(void)
 {
-	return (-(ft_strlen("B  B  K") != strlen("B  B  K")));
+	const char	*s = "B  B  K";
+
+	if (ft_strlen(s) == strlen(s))
+		return (0);
+	else
+		return (-1);
 }

@@ -2,8 +2,10 @@
 
 int	over_long(void)
 {
-	char	*s;
+	const char	*s = "-9223372036854775808";
 
-	s = "-9223372036854775808";
-	return (-(ft_atoi(s) != atoi(s)));
+	if (ft_atoi(s) == atoi(s))
+		return (0);
+	else
+		return (-1);
 }

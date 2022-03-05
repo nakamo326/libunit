@@ -2,5 +2,10 @@
 
 int	include_space_test(void)
 {
-	return (-(ft_strlen("aaa\tb\vc\fdd\r\nee ") != strlen("aaa\tb\vc\fdd\r\nee ")));
+	const char	*s = "aaa\tb\vc\fdd\r\nee ";
+
+	if (ft_strlen(s) == strlen(s))
+		return (0);
+	else
+		return (-1);
 }
