@@ -14,7 +14,7 @@ int	atoi_launcher(void)
 	load_test(&lst, "over_long8", over_long8);
 	load_test(&lst, "over_long7", over_long7);
 	load_test(&lst, "over_long6", over_long6);
-	load_test(&lst, "over_lon5", over_lon5);
+	load_test(&lst, "over_long5", over_lon5);
 	load_test(&lst, "over_long4", over_long4);
 	load_test(&lst, "over_long3", over_long3);
 	load_test(&lst, "over_long2", over_long2);
