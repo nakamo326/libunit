@@ -2,24 +2,25 @@
 #include "ft_list.h"
 #include "libft.h"
 
-void	wait_case(t_clist *pidlst)
+int	get_exit_status(int status)
 {
-	pid_t	pid;
-	int		status;
-	t_proc	*proc;
-
-	pid = wait(&status);
-	if (pid == -1)
-		return ;
-	proc = or_exit(malloc(sizeof(t_proc)));
-	proc->pid = pid;
 	if (WIFEXITED(status))
-		proc->res = -!!WEXITSTATUS(status);
+		return (-!!WEXITSTATUS(status));
 	else if (WIFSIGNALED(status))
-		proc->res = WTERMSIG(status);
+		return (WTERMSIG(status));
 	else
-		proc->res = UNKNOWN;
-	or_exit(ft_clstnew_add_back(pidlst, proc));
+		return (UNKNOWN);
+}
+
+t_proc	wait_case(void)
+{
+	int		status;
+	t_proc	proc;
+
+	proc.pid = wait(&status);
+	if (proc.pid != -1)
+		proc.res = get_exit_status(status);
+	return (proc);
 }
 
 t_clist	*find_pid_from_finished(pid_t target, t_clist *waited)

@@ -44,11 +44,13 @@ typedef struct s_case
 	int		(*f_case)();
 }	t_case;
 
+int		get_exit_status(int status);
 int		launch_tests(t_clist **lst, char *title);
 size_t	get_max_len_of_case_name(t_clist *suite);
 size_t	get_success_count(void);
 size_t	get_testcount(void);
 t_clist	*find_pid_from_finished(pid_t target, t_clist *waited);
+t_proc	wait_case(void);
 void	*or_exit(void *allocated);
 void	err_exit(t_clist *lst, t_case *data);
 void	inc_success_count(void);
@@ -62,6 +64,5 @@ void	reset_testcount(void);
 void	run_suite(t_clist *suite, char *title);
 void	set_success_count(size_t value);
 void	set_testcount(size_t value);
-void	wait_case(t_clist *pidlst);
 
 #endif
