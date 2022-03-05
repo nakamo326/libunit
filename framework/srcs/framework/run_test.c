@@ -75,6 +75,5 @@ int	run_test(t_clist *suite, char *title)
 		suite = suite->next;
 	}
 	print_suite_result(success_cases, total_cases);
-
 	return (-!!ko);
 }
