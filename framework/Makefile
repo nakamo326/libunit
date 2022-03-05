@@ -13,10 +13,12 @@ SRCFILE	=\
 	srcs/framework/error.c\
 	srcs/framework/launch_test.c\
 	srcs/framework/load_test.c\
-	srcs/framework/print_result.c\
+	srcs/framework/print_result_all.c\
+	srcs/framework/print_result_one.c\
 	srcs/framework/run_test.c\
 	srcs/framework/success_count.c\
 	srcs/framework/testcount.c\
+	srcs/framework/wait_proc.c\
 	srcs/list/ft_clst_begin.c\
 	srcs/list/ft_clst_clear.c\
 	srcs/list/ft_clst_insert.c\
