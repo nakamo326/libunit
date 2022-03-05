@@ -11,7 +11,7 @@ void	wait_case(t_clist *pidlst)
 	pid = wait(&status);
 	if (pid == -1)
 		return ;
-	proc = malloc(sizeof(t_proc));
+	proc = or_exit(malloc(sizeof(t_proc)));
 	proc->pid = pid;
 	if (WIFEXITED(status))
 		proc->res = -!!WEXITSTATUS(status);
@@ -19,7 +19,7 @@ void	wait_case(t_clist *pidlst)
 		proc->res = WTERMSIG(status);
 	else
 		proc->res = UNKNOWN;
-	ft_clstnew_add_back(pidlst, proc);
+	or_exit(ft_clstnew_add_back(pidlst, proc));
 }
 
 t_clist	*find_pid_from_finished(pid_t target, t_clist *waited)
@@ -35,11 +35,6 @@ t_clist	*find_pid_from_finished(pid_t target, t_clist *waited)
 		waited = waited->next;
 	}
 	return (NULL);
-}
-
-bool	exists_pid(t_clist *found)
-{
-	return (found != NULL);
 }
 
 size_t	get_max_len_of_case_name(t_clist *suite)

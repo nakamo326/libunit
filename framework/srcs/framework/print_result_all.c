@@ -11,7 +11,7 @@ void	print_cases_result(t_clist *suite, char *title)
 	t_clist	*finished;
 
 	max_len = get_max_len_of_case_name(suite);
-	finished = ft_clstnew(NULL);
+	finished = or_exit(ft_clstnew(NULL));
 	suite = ft_clstfirst(suite);
 	while (!ft_clst_isend(suite))
 	{
