@@ -78,7 +78,7 @@ add	:
 	bash header.sh $(SRCDIR)/framework $(INCLUDE)/libunit.h
 
 
-debug: CFLAGS += -g -fsanitize=integer -fsanitize=address -DDEBUG
+debug: CFLAGS += -g -fsanitize=address
 debug: re
 
 clean:
@@ -90,8 +90,7 @@ fclean: clean
 	$(MAKE) fclean -C $(LIBFTDIR)
 	$(RM) $(NAME)
 
-re: fclean
-	$(MAKE) all
+re: fclean all
 
 .PHONY: all clean fclean re debug srcs
 

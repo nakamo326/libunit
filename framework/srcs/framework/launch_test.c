@@ -2,7 +2,7 @@
 #include "ft_list.h"
 #include "libft.h"
 
-#define NO_TEST "[KO]      : no test detected"
+#define NO_TEST " no test detected\n"
 
 static int	get_result(void)
 {
@@ -12,16 +12,23 @@ static int	get_result(void)
 		return (-1);
 }
 
+static void	put_no_test(char *title)
+{
+	const int	fd = STDOUT_FILENO;
+
+	ft_putstrs_fd((char *[]){RED, title, NO_TEST RESET "\n", NULL}, fd);
+	ft_putendl_fd(CYAN BOLD BORDER "\n" B_RESET RESET, fd);
+}
+
 int	launch_tests(t_clist **lst, char *title)
 {
 	int			res;
-	const int	fd = STDOUT_FILENO;
 
 	if (!lst)
 		err_exit(NULL, NULL);
 	if (!*lst || !get_testcount())
 	{
-		ft_putstrs_fd((char *[]){RED "[", title, "]" NO_TEST RESET, NULL}, fd);
+		put_no_test(title);
 		return (0);
 	}
 	run_suite(*lst, title);
