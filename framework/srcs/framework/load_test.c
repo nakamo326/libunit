@@ -4,9 +4,7 @@
 
 static void	init_test(t_clist **lst)
 {
-	*lst = ft_clstnew(NULL);
-	if (!*lst)
-		err_exit(*lst, NULL);
+	*lst = or_exit(ft_clstnew(NULL));
 }
 
 void	load_test(t_clist **lst, char *case_name, int (*f_case)())
