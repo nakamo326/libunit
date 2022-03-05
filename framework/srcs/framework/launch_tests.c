@@ -15,7 +15,7 @@
 
 // [test_function]:[test_name]:[status]
 
-void	put_padding_fd(size_t size, int fd)
+static void	put_padding_fd(size_t size, int fd)
 {
 	size_t	i;
 	char	spaces[PADDING_MAX];
@@ -31,7 +31,7 @@ void	put_padding_fd(size_t size, int fd)
 	write(fd, spaces, size);
 }
 
-void	put_case_name_fd(char *case_name, size_t max_len, int fd)
+static void	put_case_name_fd(char *case_name, size_t max_len, int fd)
 {
 	const size_t	padding_size = max_len - ft_strlen(case_name);
 	const size_t	front_padding_size = padding_size / 2;
@@ -42,7 +42,7 @@ void	put_case_name_fd(char *case_name, size_t max_len, int fd)
 	put_padding_fd(back_padding_size, fd);
 }
 
-void	output_case(char *title, char *case_name, size_t max_len)
+static void	output_case(char *title, char *case_name, size_t max_len)
 {
 	const int 		fd = STDOUT_FILENO;
 
@@ -51,7 +51,7 @@ void	output_case(char *title, char *case_name, size_t max_len)
 	ft_putstr_fd(": ", fd);
 }
 
-void	put_test_result(int res)
+static void	put_test_result(int res)
 {
 	if (!res)
 		ft_putendl_fd(GREEN OK RESET, STDOUT_FILENO);
