@@ -10,35 +10,35 @@ IOPT	= $(addprefix -I , $(INCLUDES))
 
 SRCDIR := srcs
 SRCFILE	=\
-	srcs/framework/error.c\
-	srcs/framework/launch_test.c\
-	srcs/framework/load_test.c\
-	srcs/framework/print_header.c\
-	srcs/framework/print_result_all.c\
-	srcs/framework/print_result_one.c\
-	srcs/framework/put_status.c\
-	srcs/framework/run_test.c\
-	srcs/framework/success_count.c\
-	srcs/framework/testcount.c\
-	srcs/framework/wait_proc.c\
-	srcs/list/ft_clst_begin.c\
-	srcs/list/ft_clst_clear.c\
-	srcs/list/ft_clst_insert.c\
-	srcs/list/ft_clst_insert_all.c\
-	srcs/list/ft_clst_isempty.c\
-	srcs/list/ft_clst_isend.c\
-	srcs/list/ft_clst_last.c\
-	srcs/list/ft_clst_link.c\
-	srcs/list/ft_clst_next.c\
-	srcs/list/ft_clst_pop.c\
-	srcs/list/ft_clst_popdel.c\
-	srcs/list/ft_clst_size.c\
-	srcs/list/ft_clstadd_back.c\
-	srcs/list/ft_clstadd_front.c\
-	srcs/list/ft_clstdelone.c\
-	srcs/list/ft_clstfirst.c\
-	srcs/list/ft_clstnew.c\
-	srcs/list/ft_clstnew_add_back.c\
+	srcs/framework/error_bonus.c\
+	srcs/framework/launch_test_bonus.c\
+	srcs/framework/load_test_bonus.c\
+	srcs/framework/print_header_bonus.c\
+	srcs/framework/print_result_all_bonus.c\
+	srcs/framework/print_result_one_bonus.c\
+	srcs/framework/put_status_bonus.c\
+	srcs/framework/run_test_bonus.c\
+	srcs/framework/success_count_bonus.c\
+	srcs/framework/testcount_bonus.c\
+	srcs/framework/wait_proc_bonus.c\
+	srcs/list/ft_clst_begin_bonus.c\
+	srcs/list/ft_clst_clear_bonus.c\
+	srcs/list/ft_clst_insert_bonus.c\
+	srcs/list/ft_clst_insert_all_bonus.c\
+	srcs/list/ft_clst_isempty_bonus.c\
+	srcs/list/ft_clst_isend_bonus.c\
+	srcs/list/ft_clst_last_bonus.c\
+	srcs/list/ft_clst_link_bonus.c\
+	srcs/list/ft_clst_next_bonus.c\
+	srcs/list/ft_clst_pop_bonus.c\
+	srcs/list/ft_clst_popdel_bonus.c\
+	srcs/list/ft_clst_size_bonus.c\
+	srcs/list/ft_clstadd_back_bonus.c\
+	srcs/list/ft_clstadd_front_bonus.c\
+	srcs/list/ft_clstdelone_bonus.c\
+	srcs/list/ft_clstfirst_bonus.c\
+	srcs/list/ft_clstnew_bonus.c\
+	srcs/list/ft_clstnew_add_back_bonus.c\
 
 OBJDIR := objs
 OBJS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.o))
@@ -46,11 +46,9 @@ DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
 
 LIBS := -lft
 
-LIBFTDIR = libft
+LIBFTDIR = ../libft
 LIBFTINCLUDE = $(LIBFTDIR)
 LIBFT = $(LIBFTDIR)/libft.a
-
-BONUS_DIR := framework_bonus
 
 # ==== Align length to format compile message ==== #
 ALIGN := $(shell tr ' ' '\n' <<<"$(SRCFILE)" | while read line; do echo \
@@ -77,10 +75,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$$(yes ' ' | head -n $$(expr $(ALIGN) - $$((`echo $< | wc -m` - 1))) | tr -d '\n') -> \
 	$(GRN)$@$(NC)"
 
-bonus :
-	$(MAKE) -C $(BONUS_DIR)
-	cp $(BONUS_DIR)/libunit.a .
-
 add	:
 	bash make.sh $(SRCDIR) SRCFILE
 	bash header.sh $(SRCDIR)/framework $(INCLUDE)/libunit.h
@@ -90,18 +84,16 @@ debug: re
 
 clean:
 	$(MAKE) clean -C $(LIBFTDIR)
-	$(MAKE) clean -C $(BONUS_DIR)
 	$(RM) $(OBJS) $(DEPS)
 	$(RM) -r $(OBJDIR)
 
 fclean: clean
 	$(MAKE) fclean -C $(LIBFTDIR)
-	$(MAKE) fclean -C $(BONUS_DIR)
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re debug srcs bonus
+.PHONY: all clean fclean re debug srcs
 
 # ==== Color define ==== #
 YLW := \033[33m
