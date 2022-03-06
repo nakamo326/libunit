@@ -69,5 +69,7 @@ int	add_launcher(void);
 int	add_basic_test(void);
 int	stdout_test(void);
 int	longtxt_test(void);
+int	empty_launcher(void);
+int	null_launcher(void);
 
 #endif

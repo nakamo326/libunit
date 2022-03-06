@@ -71,6 +71,8 @@ SRCS			=\
 	./strlcpy/02_literal_test.c\
 	./add/00_launcher.c\
 	./add/01_basic_test.c\
+	./null/00_launcher.c\
+	./empty/00_launcher.c\
 
 B_SRCS =\
 	./stdout_capture/00_launcher.c\
