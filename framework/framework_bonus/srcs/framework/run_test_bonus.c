@@ -4,20 +4,13 @@
 
 static void	run_test(t_case *testcase)
 {
-	int		stderr_copy_fd;
-	int		exit_status;
-
 	testcase->proc.pid = fork();
 	if (testcase->proc.pid < 0)
 		err_exit(NULL, NULL);
 	else if (testcase->proc.pid == 0)
 	{
 		alarm(3);
-		stderr_copy_fd = dup(STDERR_FILENO);
-		close(STDERR_FILENO);
-		exit_status = testcase->f_case();
-		dup2(stderr_copy_fd, STDERR_FILENO);
-		exit(exit_status);
+		exit(testcase->f_case());
 	}
 }
 
