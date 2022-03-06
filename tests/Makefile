@@ -7,6 +7,13 @@ LIBUNIT_DIR		= ..
 B_LIBUNIT		= $(FRAMEWORK_DIR)/libunit.a
 OBJS			= $(SRCS:.c=.o)
 MAIN			=  ./main.c
+
+ifeq ($(findstring bonus,$(MAKECMDGOALS)), bonus)
+	MAIN 	 = ./main_bonus.c
+	SRCS	+= $(B_SRCS)
+	OBJS	+= $(B_OBJS)
+endif
+
 SRCS			=\
 	$(MAIN)\
 	./atoi/00_launcher.c\
@@ -80,12 +87,6 @@ B_SRCS =\
 B_OBJS = $(B_SRCS:.c=.o)
 
 all	: _libft _unit $(NAME)
-
-ifeq ($(findstring bonus,$(MAKECMDGOALS)), bonus)
-	SRCS	+= $(B_SRCS)
-	OBJS	+= $(B_OBJS)
-	MAIN 	 = ./main_bonus.c
-endif
 
 bonus : _libft _bonus_unit $(NAME)
 
