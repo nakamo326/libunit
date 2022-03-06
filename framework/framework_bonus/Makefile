@@ -23,7 +23,8 @@ SRCFILE	=\
 	srcs/framework/success_count_bonus.c\
 	srcs/framework/testcount_bonus.c\
 	srcs/framework/wait_proc_bonus.c\
-	srcs/framework/get_string_from_fd.c\
+	srcs/framework/catch_result_bonus.c\
+	srcs/framework/get_string_from_fd_bonus.c\
 	srcs/list/ft_clst_begin_bonus.c\
 	srcs/list/ft_clst_clear_bonus.c\
 	srcs/list/ft_clst_insert_all_bonus.c\

@@ -12,8 +12,6 @@
 #define M_SIGPIPE	"[SIGPIPE]"
 #define M_TIMEOUT	"[TIMEOUT]"
 #define M_UNKNOWN	"[UNKNOWN]"
-
-
 #define PADDING_MAX 100
 
 // [test_function]:[test_name]:[status]

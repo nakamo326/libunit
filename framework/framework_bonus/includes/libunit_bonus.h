@@ -67,12 +67,13 @@ void	print_result_one(char *title, char *case_name, int res, size_t max_len);
 void	put_test_result(int res, int fd);
 void	reset_success_count(void);
 void	reset_testcount(void);
-void	restore_stdout();
+void	restore_stdout(void);
 void	run_suite(t_clist *suite, char *title);
 void	set_success_count(size_t value);
 void	set_testcount(size_t value);
 void	store_stdout(void);
 void	put_status( char *signal, char *color, int fd);
 char	*get_string_from_fd(int fd, size_t size);
+void	catch_test_result(t_clist *suite);
 
 #endif

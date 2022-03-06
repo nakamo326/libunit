@@ -11,7 +11,7 @@ static pthread_t	g_th;
 
 void	*drain_stdout(void *p)
 {
-	int capture_pipe_fd;
+	int	capture_pipe_fd;
 
 	capture_pipe_fd = *(int *)p;
 	g_buf = get_string_from_fd(capture_pipe_fd, PIPE_BUF);
@@ -30,7 +30,7 @@ void	capture_stdout(void)
 	pthread_create(&g_th, NULL, drain_stdout, &capture_pipe[0]);
 }
 
-void	restore_stdout()
+void	restore_stdout(void)
 {
 	dup2(g_stdout_copy_fd, STDOUT_FILENO);
 	close(g_stdout_copy_fd);
