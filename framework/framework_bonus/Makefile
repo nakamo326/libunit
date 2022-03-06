@@ -19,13 +19,16 @@ SRCFILE	=\
 	srcs/framework/print_result_one_bonus.c\
 	srcs/framework/put_status_bonus.c\
 	srcs/framework/run_test_bonus.c\
+	srcs/framework/stdout_bonus.c\
 	srcs/framework/success_count_bonus.c\
 	srcs/framework/testcount_bonus.c\
 	srcs/framework/wait_proc_bonus.c\
+	srcs/framework/catch_result_bonus.c\
+	srcs/framework/get_string_from_fd_bonus.c\
 	srcs/list/ft_clst_begin_bonus.c\
 	srcs/list/ft_clst_clear_bonus.c\
-	srcs/list/ft_clst_insert_bonus.c\
 	srcs/list/ft_clst_insert_all_bonus.c\
+	srcs/list/ft_clst_insert_bonus.c\
 	srcs/list/ft_clst_isempty_bonus.c\
 	srcs/list/ft_clst_isend_bonus.c\
 	srcs/list/ft_clst_last_bonus.c\
@@ -38,14 +41,14 @@ SRCFILE	=\
 	srcs/list/ft_clstadd_front_bonus.c\
 	srcs/list/ft_clstdelone_bonus.c\
 	srcs/list/ft_clstfirst_bonus.c\
-	srcs/list/ft_clstnew_bonus.c\
 	srcs/list/ft_clstnew_add_back_bonus.c\
+	srcs/list/ft_clstnew_bonus.c\
 
 OBJDIR := objs
 OBJS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.o))
 DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
 
-LIBS := -lft
+LIBS := -lft -lpthread
 
 LIBFTDIR = ../libft
 LIBFTINCLUDE = $(LIBFTDIR)
@@ -78,7 +81,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 
 add	:
 	bash make.sh $(SRCDIR) SRCFILE
-	bash header.sh $(SRCDIR)/framework $(INCLUDE)/libunit.h
+	bash header.sh $(SRCDIR)/framework $(INCLUDE)/libunit_bonus.h
 
 debug: CFLAGS += -g -fsanitize=address
 debug: re

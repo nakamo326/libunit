@@ -1,42 +1,45 @@
 #include "libunit_bonus.h"
 #include "ft_list_bonus.h"
 #include "libft.h"
+#include <unistd.h>
+#include <pthread.h>
+#include <stdio.h>
 
-static int	g_pipe_fd[2];
-static int	g_stdout_copy_fd;
+static char			*g_buf;
+static int			g_stdout_copy_fd;
+static pthread_t	g_th;
+
+void	*drain_stdout(void *p)
+{
+	int	capture_pipe_fd;
+
+	capture_pipe_fd = *(int *)p;
+	g_buf = get_string_from_fd(capture_pipe_fd, PIPE_BUF);
+	close(capture_pipe_fd);
+	return (NULL);
+}
 
 void	capture_stdout(void)
 {
-	pipe(g_pipe_fd);
+	int		capture_pipe[2];
+
+	pipe(capture_pipe);
 	g_stdout_copy_fd = dup(STDOUT_FILENO);
-	dup2(g_pipe_fd[1], STDOUT_FILENO);
+	dup2(capture_pipe[1], STDOUT_FILENO);
+	close(capture_pipe[1]);
+	pthread_create(&g_th, NULL, drain_stdout, &capture_pipe[0]);
+}
+
+void	restore_stdout(void)
+{
+	dup2(g_stdout_copy_fd, STDOUT_FILENO);
+	close(g_stdout_copy_fd);
 }
 
 char	*get_captured_stdout(void)
 {
-	ssize_t	bufsize;
-	ssize_t	readsize;
-	ssize_t	read_status;
-	char	*buf;
-
-	dup2(g_stdout_copy_fd, STDOUT_FILENO);
-	close(g_stdout_copy_fd);
-	bufsize = 0;
-	readsize = 0;
-	while (1)
-	{
-		if (bufsize <= readsize)
-		{
-			bufsize += PIPE_BUF;
-			buf = or_exit(realloc(buf, bufsize));
-		}
-		read_status = read(g_pipe_fd[0], buf, PIPE_BUF);
-		if (read_status <= 0)
-			break ;
-		readsize += read_status;
-	}
-	buf[readsize] = '\0';
-	close(g_pipe_fd[0]);
-	close(g_pipe_fd[1]);
-	return (buf);
+	fflush(stdout);
+	restore_stdout();
+	pthread_join(g_th, NULL);
+	return (g_buf);
 }
