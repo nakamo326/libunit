@@ -27,11 +27,12 @@ static void	print_log(int fd, t_clist *suite, char *title, size_t max_len)
 
 static int	open_file(char *title)
 {
-	int		fd;
-	char	*filename;
+	int				fd;
+	char			*filename;
+	const mode_t	mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
 
 	filename = or_exit(ft_strjoin(title, ".log"));
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC);
+	fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, mode);
 	if (fd == -1)
 	{
 		perror("open");

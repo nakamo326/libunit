@@ -2,7 +2,7 @@
 # define CASES_H
 # include <string.h>
 # include "../real-tests/libft/libft.h"
-# include "../framework/includes/libunit.h"
+# include "tester.h"
 # include <limits.h>
 
 int	atoi_launcher(void);
@@ -57,5 +57,7 @@ int	sig_abrt(void);
 int	sig_fpe(void);
 int	sig_pipe(void);
 int	sig_ill(void);
+int	stdout_launcher(void);
+int	stdout_test(void);
 
 #endif
