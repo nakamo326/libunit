@@ -2,6 +2,19 @@
 #include "unistd.h"
 #include <stdlib.h>
 
+static char	*my_realloc(char *buf, ssize_t bufsize)
+{
+	char	*new_buf;
+
+	new_buf = realloc(buf, bufsize);
+	if (!new_buf)
+	{
+		free(buf);
+		return (NULL);
+	}
+	return (new_buf);
+}
+
 char	*get_string_from_fd(int fd, size_t size)
 {
 	ssize_t	bufsize;
@@ -17,7 +30,9 @@ char	*get_string_from_fd(int fd, size_t size)
 		if (bufsize <= readsize)
 		{
 			bufsize += size;
-			buf = or_exit(realloc(buf, bufsize));
+			buf = my_realloc(buf, bufsize);
+			if (!buf)
+				return (NULL);
 		}
 		read_status = read(fd, buf + readsize, size);
 		if (read_status <= 0)

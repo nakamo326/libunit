@@ -6,5 +6,6 @@ int	stdout_launcher(void)
 
 	load_test(&lst, "stdout_test", stdout_test);
 	load_test(&lst, "longtxt_test", longtxt_test);
+	load_test(&lst, "mediumtxt_test", mediumtxt_test);
 	return (launch_tests(&lst, "STDOUT"));
 }
