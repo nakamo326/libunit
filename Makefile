@@ -31,6 +31,11 @@ add:
 	$(MAKE) add -C $(TESTS_DIR)
 	$(MAKE) add -C $(REALTESTS_DIR)
 
+test_bonus  :
+	$(MAKE) test_bonus -C $(TESTS_DIR)
+
+rtest_bonus :
+	$(MAKE) test_bonus -C $(REALTESTS_DIR)
 bonus:
 	$(MAKE) bonus -C $(TESTS_DIR)
 	$(MAKE) bonus -C $(REALTESTS_DIR)

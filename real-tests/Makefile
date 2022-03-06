@@ -13,7 +13,6 @@ all	: _libft _unit $(NAME)
 bonus : _libft _bonus_unit $(NAME)
 
 $(NAME) : $(LIBFT_DIR)/libft.a $(FRAMEWORK_DIR)/libunit.a $(OBJS)
-	$(RM) ../result.txt
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_DIR)/libft.a $(FRAMEWORK_DIR)/libunit.a -o $(NAME)
 
 _libft:
@@ -26,7 +25,9 @@ _bonus_unit:
 	$(MAKE) bonus -C $(FRAMEWORK_DIR)
 
 test		: all
-	$(RM) ../result.txt
+	./$(NAME)
+
+test_bonus	: bonus
 	./$(NAME)
 
 add	:
@@ -39,7 +40,6 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) ../result.txt
 	$(MAKE) fclean -C $(LIBFT_DIR)
 	$(MAKE) fclean -C $(FRAMEWORK_DIR)
 

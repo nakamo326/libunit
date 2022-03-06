@@ -79,7 +79,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 
 bonus :
 	$(MAKE) -C $(BONUS_DIR)
-	cp $(BONUS_DIR)/libunit.a .
 
 add	:
 	bash make.sh $(SRCDIR) SRCFILE

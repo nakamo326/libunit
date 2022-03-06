@@ -2,8 +2,8 @@
 
 int	strncmp_empty_string_test(void)
 {
-	int libret;
-	int ftret;
+	int	libret;
+	int	ftret;
 
 	libret = strncmp("", "", 1);
 	ftret = ft_strncmp("", "", 1);
@@ -11,5 +11,5 @@ int	strncmp_empty_string_test(void)
 		|| (libret == 0 && ftret == 0))
 		return (0);
 	else
-		return(-1);
+		return (-1);
 }

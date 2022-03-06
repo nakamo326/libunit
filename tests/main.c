@@ -7,7 +7,6 @@ int	main(void)
 
 	print_header();
 	ret = 0;
-	ret |= stdout_launcher();
 	ret |= atoi_launcher();
 	ret |= strlen_launcher();
 	ret |= add_launcher();

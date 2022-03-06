@@ -2,8 +2,8 @@
 
 int	strncmp_basic_test3(void)
 {
-	int libret;
-	int ftret;
+	int	libret;
+	int	ftret;
 
 	libret = strncmp("aaaaaaaaaa", "aaaaaaaaab", 9);
 	ftret = ft_strncmp("aaaaaaaaaa", "aaaaaaaaab", 9);
@@ -11,5 +11,5 @@ int	strncmp_basic_test3(void)
 		|| (libret == 0 && ftret == 0))
 		return (0);
 	else
-		return(-1);
+		return (-1);
 }

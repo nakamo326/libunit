@@ -1,4 +1,5 @@
 #include "../cases.h"
+#include <stdbool.h>
 
 int	get_written_fd_basic_test(void)
 {
