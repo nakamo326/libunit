@@ -17,5 +17,7 @@ int	main(void)
 	ret |= get_written_fd_launcher();
 	ret |= asm_jmp_launcher();
 	ret |= stdout_launcher();
+	ret |= null_launcher();
+	ret |= empty_launcher();
 	return (ret);
 }
