@@ -23,17 +23,17 @@ t_proc	wait_case(void)
 	return (proc);
 }
 
-t_clist	*find_pid_from_finished(pid_t target, t_clist *waited)
+t_clist	*find_pid_from_finished(pid_t target, t_clist *finished)
 {
 	t_proc	*proc;
 
-	waited = ft_clstfirst(waited);
-	while (!ft_clst_isend(waited))
+	finished = ft_clstfirst(finished);
+	while (!ft_clst_isend(finished))
 	{
-		proc = waited->data;
+		proc = finished->data;
 		if (proc->pid == target)
-			return (waited);
-		waited = waited->next;
+			return (finished);
+		finished = finished->next;
 	}
 	return (NULL);
 }

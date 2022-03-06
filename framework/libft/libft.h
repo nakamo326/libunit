@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/05 16:49:44 by ynakamot          #+#    #+#             */
-/*   Updated: 2022/03/05 17:30:26 by ynakamot         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -84,5 +73,6 @@ char		**ft_addstr_split(char **list, const char *str);
 char		*ft_str_sandwich(char *filling, char *bread);
 void		ft_free(void	**ptr);
 void		ft_putstrs_fd(char **strs, int fd);
+void		ft_putsize_fd(size_t n, int fd);
 
 #endif

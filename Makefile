@@ -5,6 +5,10 @@ all:
 	$(MAKE) -C $(TESTS_DIR)
 	$(MAKE) -C $(REALTESTS_DIR)
 
+delog:
+	rm -f $(TESTS_DIR)/*.log
+	rm -f $(REALTESTS_DIR)/*.log
+
 clean:
 	$(MAKE) clean -C $(TESTS_DIR)
 	$(MAKE) clean -C $(REALTESTS_DIR)
