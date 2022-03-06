@@ -83,6 +83,7 @@ B_SRCS =\
 	./stdout_capture/00_launcher.c\
 	./stdout_capture/01_basic_test.c\
 	./stdout_capture/02_longtxt_test.c\
+	./stdout_capture/03_medium_test.c
 
 B_OBJS = $(B_SRCS:.c=.o)
 
@@ -112,7 +113,7 @@ add	:
 	bash init.sh
 
 clean:
-	rm -f $(OBJS) $(B_OBJS)
+	rm -f $(OBJS) $(B_OBJS) main.o main_bonus.o
 	$(MAKE) clean -C $(LIBFT_DIR)
 	$(MAKE) clean -C $(FRAMEWORK_DIR)
 
