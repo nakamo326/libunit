@@ -77,10 +77,16 @@ B_SRCS =\
 	./stdout_capture/01_basic_test.c\
 	./stdout_capture/02_longtxt_test.c\
 
+B_OBJS = $(B_SRCS:.c=.o)
+
 all	: _libft _unit $(NAME)
 
-bonus : $(MAIN)	= ./main_bonus.c
-bonus : SRCS += $(B_SRCS)
+ifeq ($(findstring bonus,$(MAKECMDGOALS)), bonus)
+	SRCS	+= $(B_SRCS)
+	OBJS	+= $(B_OBJS)
+	MAIN 	 = ./main_bonus.c
+endif
+
 bonus : _libft _bonus_unit $(NAME)
 
 $(NAME) : $(LIBFT_DIR)/libft.a $(FRAMEWORK_DIR)/libunit.a $(OBJS)
@@ -105,7 +111,7 @@ add	:
 	bash init.sh
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(B_OBJS)
 	$(MAKE) clean -C $(LIBFT_DIR)
 	$(MAKE) clean -C $(FRAMEWORK_DIR)
 
