@@ -8,26 +8,23 @@
 static char			*g_buf;
 static int			g_stdout_copy_fd;
 static pthread_t	g_th;
+static int			g_capture_pipe[2];
 
 void	*drain_stdout(void *p)
 {
-	int	capture_pipe_fd;
-
-	capture_pipe_fd = *(int *)p;
-	g_buf = get_string_from_fd(capture_pipe_fd, PIPE_BUF);
-	close(capture_pipe_fd);
+	(void)p;
+	g_buf = get_string_from_fd(g_capture_pipe[0], PIPE_BUF);
+	close(g_capture_pipe[0]);
 	return (NULL);
 }
 
 void	capture_stdout(void)
 {
-	int		capture_pipe[2];
-
-	pipe(capture_pipe);
+	pipe(g_capture_pipe);
 	g_stdout_copy_fd = dup(STDOUT_FILENO);
-	dup2(capture_pipe[1], STDOUT_FILENO);
-	close(capture_pipe[1]);
-	pthread_create(&g_th, NULL, drain_stdout, &capture_pipe[0]);
+	dup2(g_capture_pipe[1], STDOUT_FILENO);
+	close(g_capture_pipe[1]);
+	pthread_create(&g_th, NULL, drain_stdout, NULL);
 }
 
 void	restore_stdout(void)
