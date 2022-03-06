@@ -5,82 +5,41 @@
 #include <pthread.h>
 #include <stdio.h>
 
-static int	g_capture_pipe[2];
-static int	g_output_pipe[2];
-static int	g_stdout_copy_fd;
+static char			*g_buf;
+static int			g_stdout_copy_fd;
+static pthread_t	g_th;
 
-int	or_exit_i(int res)
+void	*drain_stdout(void *p)
 {
-	if (res == -1)
-	{
-		perror("error");
-		exit(-1);
-	}
-	return (res);
-}
+	int capture_pipe_fd;
 
-char	*store_stdout_to_buffer(void)
-{
-	char	*buf;
-
-	close(STDOUT_FILENO);
-	buf = get_string_from_fd(g_capture_pipe[0], PIPE_BUF);
-	return (buf);
-}
-
-void	transport_buf_to_parent(char *buf)
-{
-	fprintf(stderr, "%s\n", __func__);
-	ft_putstr_fd(buf, g_output_pipe[1]);
-	close(g_output_pipe[1]);
-}
-
-void	drain_stdout()
-{
-	pid_t	pid;
-	char	*buf;
-
-	close(g_capture_pipe[1]);
-	pid = fork();
-	if (pid == -1)
-	{
-		perror("fork");
-		exit(-1);
-	}
-	if (!pid)
-	{
-		buf = store_stdout_to_buffer();
-		transport_buf_to_parent(buf);
-		fprintf(stderr, "%s\n", __func__);
-		free(buf);
-		exit(EXIT_SUCCESS);
-	}
-	close(g_capture_pipe[0]);
-	close(g_output_pipe[1]);
+	capture_pipe_fd = *(int *)p;
+	g_buf = get_string_from_fd(capture_pipe_fd, PIPE_BUF);
+	close(capture_pipe_fd);
+	return (NULL);
 }
 
 void	capture_stdout(void)
 {
-	or_exit_i(pipe(g_capture_pipe));
-	or_exit_i(pipe(g_output_pipe));
+	int		capture_pipe[2];
+
+	pipe(capture_pipe);
 	g_stdout_copy_fd = dup(STDOUT_FILENO);
-	or_exit_i(dup2(g_capture_pipe[1], STDOUT_FILENO));
-	drain_stdout();
+	dup2(capture_pipe[1], STDOUT_FILENO);
+	close(capture_pipe[1]);
+	pthread_create(&g_th, NULL, drain_stdout, &capture_pipe[0]);
 }
 
 void	restore_stdout()
 {
-	or_exit_i(dup2(g_stdout_copy_fd, STDOUT_FILENO));
+	dup2(g_stdout_copy_fd, STDOUT_FILENO);
 	close(g_stdout_copy_fd);
 }
 
 char	*get_captured_stdout(void)
 {
-	char	*buf;
-
 	fflush(stdout);
 	restore_stdout();
-	buf = get_string_from_fd(g_output_pipe[0], PIPE_BUF);
-	wait(NULL);
-	return (buf);
+	pthread_join(g_th, NULL);
+	return (g_buf);
 }

@@ -47,7 +47,7 @@ OBJDIR := objs
 OBJS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.o))
 DEPS = $(patsubst $(SRCDIR)%,$(OBJDIR)%,$(SRCFILE:.c=.d))
 
-LIBS := -lft
+LIBS := -lft -lpthread
 
 LIBFTDIR = ../libft
 LIBFTINCLUDE = $(LIBFTDIR)

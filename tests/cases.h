@@ -59,5 +59,6 @@ int	sig_pipe(void);
 int	sig_ill(void);
 int	stdout_launcher(void);
 int	stdout_test(void);
+int	longtxt_test(void);
 
 #endif
