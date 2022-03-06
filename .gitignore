@@ -7,3 +7,4 @@ test.c
 libunit
 result.txt
 .b_flag
+*.log
