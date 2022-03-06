@@ -8,3 +8,6 @@ libunit
 result.txt
 .b_flag
 *.log
+*.sh
+Readme.md
+.github/*
