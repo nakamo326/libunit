@@ -67,6 +67,7 @@ int	strlcpy_basic_test(void);
 int	strlcpy_literal_test(void);
 int	add_launcher(void);
 int	add_basic_test(void);
+int	stdout_launcher(void);
 int	stdout_test(void);
 int	longtxt_test(void);
 
