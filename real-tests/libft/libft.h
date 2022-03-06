@@ -59,4 +59,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 
+int		ft_asm_jmp(void);
+double	ft_div(int nbr1, int nbr2);
+int		ft_is_prime(int nb);
+int		ft_get_written_fd(char *str);
+void	ft_free(void **p);
+int		ft_add(int nbr1, int nbr2);
+
 #endif

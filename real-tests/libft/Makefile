@@ -34,7 +34,13 @@ SRCS	= ft_strlen.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c \
+		ft_asm_jmp.c \
+		ft_div.c \
+		ft_get_written_fd.c \
+		ft_is_prime.c \
+		ft_free.c \
+		ft_add.c
 B_SRCS	=	ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
