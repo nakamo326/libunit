@@ -1,5 +1,5 @@
 #ifndef TESTER_H
-#define TESTER_H
+# define TESTER_H
 
 typedef struct s_clist	t_clist;
 

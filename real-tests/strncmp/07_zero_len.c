@@ -2,8 +2,8 @@
 
 int	strncmp_zerolen_test(void)
 {
-	int libret;
-	int ftret;
+	int	libret;
+	int	ftret;
 
 	libret = strncmp("bbbbb", "aaaaa", 0);
 	ftret = ft_strncmp("bbbbb", "aaaaa", 0);
@@ -11,5 +11,5 @@ int	strncmp_zerolen_test(void)
 		|| (libret == 0 && ftret == 0))
 		return (0);
 	else
-		return(-1);
+		return (-1);
 }
