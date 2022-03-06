@@ -39,7 +39,7 @@ typedef struct s_test
 }	t_test;
 typedef struct s_case
 {
-	int		pid;
+	t_proc	proc;
 	char	*case_name;
 	int		(*f_case)();
 }	t_case;
@@ -64,6 +64,9 @@ void	reset_testcount(void);
 void	run_suite(t_clist *suite, char *title);
 void	set_success_count(size_t value);
 void	set_testcount(size_t value);
-void	put_status( char *signal, char *color);
+void	put_status(char *signal, char *color, int fd);
+void	output_case(char *title, char *case_name, size_t max_len, int fd);
+void	put_test_result(int res, int fd);
+void	create_log_file(t_clist *suite, char *title, size_t max_len);
 
 #endif

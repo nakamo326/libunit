@@ -39,7 +39,7 @@ typedef struct s_test
 }	t_test;
 typedef struct s_case
 {
-	int		pid;
+	pid_t	pid;
 	char	*case_name;
 	int		(*f_case)();
 }	t_case;

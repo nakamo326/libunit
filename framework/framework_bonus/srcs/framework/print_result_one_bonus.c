@@ -45,41 +45,41 @@ static void	put_case_name_fd(char *case_name, size_t max_len, int fd)
 	put_padding_fd(back_padding_size, fd);
 }
 
-static void	output_case(char *title, char *case_name, size_t max_len)
+void	output_case(char *title, char *case_name, size_t max_len, int fd)
 {
-	const int	fd = STDOUT_FILENO;
-
 	ft_putstrs_fd((char *[]){title, " : ", NULL}, fd);
 	put_case_name_fd(case_name, max_len, fd);
 	ft_putstr_fd(": ", fd);
 }
 
-static void	put_test_result(int res)
+void	put_test_result(int res, int fd)
 {
 	if (!res)
-		put_status(OK, GREEN);
+		put_status(OK, GREEN, fd);
 	else if (res == -1)
-		put_status(KO, RED);
+		put_status(KO, RED, fd);
 	else if (res == SIGSEGV)
-		put_status(M_SIGSEGV, YELLOW);
+		put_status(M_SIGSEGV, YELLOW, fd);
 	else if (res == SIGABRT)
-		put_status(M_SIGABRT, YELLOW);
+		put_status(M_SIGABRT, YELLOW, fd);
 	else if (res == SIGBUS)
-		put_status(M_SIGBUS, YELLOW);
+		put_status(M_SIGBUS, YELLOW, fd);
 	else if (res == SIGFPE)
-		put_status(M_SIGFPE, YELLOW);
+		put_status(M_SIGFPE, YELLOW, fd);
 	else if (res == SIGALRM)
-		put_status(M_TIMEOUT, YELLOW);
+		put_status(M_TIMEOUT, YELLOW, fd);
 	else if (res == SIGPIPE)
-		put_status(M_SIGPIPE, YELLOW);
+		put_status(M_SIGPIPE, YELLOW, fd);
 	else if (res == SIGILL)
-		put_status(M_SIGILL, YELLOW);
+		put_status(M_SIGILL, YELLOW, fd);
 	else
-		put_status(M_UNKNOWN, YELLOW);
+		put_status(M_UNKNOWN, YELLOW, fd);
 }
 
 void	print_result_one(char *title, char *case_name, int res, size_t max_len)
 {
-	output_case(title, case_name, max_len);
-	put_test_result(res);
+	const int	fd = STDOUT_FILENO;
+
+	output_case(title, case_name, max_len, fd);
+	put_test_result(res, fd);
 }

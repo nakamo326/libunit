@@ -4,11 +4,14 @@
 
 static void	run_test(t_case *testcase)
 {
-	testcase->pid = fork();
-	if (testcase->pid < 0)
+	testcase->proc.pid = fork();
+	if (testcase->proc.pid < 0)
 		err_exit(NULL, NULL);
-	else if (testcase->pid == 0)
+	else if (testcase->proc.pid == 0)
+	{
+		alarm(3);
 		exit(testcase->f_case());
+	}
 }
 
 static void	put_title(char *title)

@@ -11,6 +11,7 @@ IOPT	= $(addprefix -I , $(INCLUDES))
 SRCDIR := srcs
 SRCFILE	=\
 	srcs/framework/error_bonus.c\
+	srcs/framework/file_out_bonus.c\
 	srcs/framework/launch_test_bonus.c\
 	srcs/framework/load_test_bonus.c\
 	srcs/framework/print_header_bonus.c\
